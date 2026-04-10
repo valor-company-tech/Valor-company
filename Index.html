@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VALOR COMPANY — Programme Agents</title>
+<!-- ══ GOOGLE ADSENSE ══ -->
+<!-- Remplacez ca-pub-XXXXXXXXXXXXXXXX par votre ID Publisher AdSense réel -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #d4af37;
+  --gold-light: #f0d060;
+  --gold-dim: rgba(212,175,55,0.12);
+  --gold-border: rgba(212,175,55,0.2);
+  --navy: #070b1f;
+  --navy-2: #0d1230;
+  --glass: rgba(255,255,255,0.035);
+  --glass-mid: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.07);
+  --green: #00e676;
+  --green-dim: rgba(0,230,118,0.1);
+  --red: #ff3d57;
+  --red-dim: rgba(255,61,87,0.1);
+  --grey: rgba(255,255,255,0.15);
+  --grey-dim: rgba(255,255,255,0.05);
+  --text: #e8eaf6;
+  --text-dim: rgba(232,234,246,0.5);
+  --text-muted: rgba(232,234,246,0.3);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND ── */
+.bg {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 15% 0%, rgba(20,35,100,0.95) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 85% 90%, rgba(30,60,80,0.7) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212,175,55,0.03) 0%, transparent 70%),
+    linear-gradient(160deg, #07091a 0%, #070b1f 50%, #060918 100%);
+}
+
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridScroll 25s linear infinite;
+}
+@keyframes gridScroll { to { transform: translateY(60px); } }
+
+.orb {
+  position: fixed; border-radius: 50%;
+  filter: blur(100px); pointer-events: none; z-index: 0;
+}
+.orb-1 { width:500px;height:500px; background:rgba(212,175,55,0.05); top:-150px;left:-150px; animation: drift 15s ease-in-out infinite alternate; }
+.orb-2 { width:400px;height:400px; background:rgba(20,40,120,0.4); bottom:-100px;right:-100px; animation: drift 18s ease-in-out infinite alternate-reverse; }
+.orb-3 { width:300px;height:300px; background:rgba(0,230,118,0.03); top:40%;left:60%; animation: drift 12s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(40px, 30px) scale(1.08); } }
+
+.scan {
+  position: fixed; top:0;left:0;right:0; height:2px; z-index:99;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: scanDown 1.8s ease-in-out forwards; pointer-events:none;
+}
+@keyframes scanDown { 0%{top:0;opacity:1} 95%{opacity:1} 100%{top:100vh;opacity:0} }
+
+/* ── LAYOUT ── */
+.page { position:relative; z-index:1; max-width:700px; margin:0 auto; padding:80px 16px 120px; }
+
+/* ── HERO ── */
+.hero {
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--gold-border);
+  border-radius: 28px;
+  padding: 48px 32px 36px;
+  text-align: center;
+  position: relative; overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 0 80px rgba(212,175,55,0.04), 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.12);
+  animation: riseIn 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+.hero::before {
+  content:''; position:absolute; top:0;left:0;right:0; height:1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 40%, var(--gold-light) 60%, transparent 100%);
+  opacity: 0.6;
+}
+.hero::after {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(212,175,55,0.05) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-badge {
+  display: inline-flex; align-items:center; gap:8px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px; letter-spacing:2.5px;
+  color: var(--gold); text-transform:uppercase;
+  margin-bottom: 20px;
+}
+.hero-badge-dot {
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 8px var(--green);
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900; font-size: 32px;
+  letter-spacing: 5px; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 45%, #9a7520 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 10px; line-height: 1.15;
+}
+
+.hero-rule {
+  width:80px; height:1px; margin:18px auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 17px; color: var(--text-dim);
+  letter-spacing: 0.5px; line-height: 1.6;
+  max-width: 420px; margin: 0 auto 24px;
+}
+
+.hero-cta {
+  display: inline-flex; align-items:center; gap:10px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08));
+  border: 1px solid rgba(212,175,55,0.4);
+  color: var(--gold-light);
+  padding: 14px 32px; border-radius: 50px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; letter-spacing:2px; text-transform:uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(212,175,55,0.08);
+}
+.hero-cta:hover {
+  background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15));
+  box-shadow: 0 0 40px rgba(212,175,55,0.18);
+  transform: translateY(-2px);
+}
+.hero-cta-arrow { font-size:14px; transition: transform 0.3s; }
+.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+/* ── SECTION TITLE ── */
+.section-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px; letter-spacing:3px;
+  color: var(--gold); opacity:0.7;
+  text-transform: uppercase;
+  margin-bottom: 16px; padding-left: 2px;
+  display: flex; align-items:center; gap:10px;
+}
+.section-label::after {
+  content:''; flex:1; height:1px;
+  background: linear-gradient(90deg, var(--gold-border), transparent);
+}
+
+/* ── VOLET CARDS ── */
+.volet-grid { display:flex; flex-direction:column; gap:16px; margin-bottom:32px; }
+
+.volet-card {
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  padding: 28px 26px;
+  position: relative; overflow:hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  animation: riseIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+.volet-card::before {
+  content:''; position:absolute; top:0;left:0;bottom:0; width:2px;
+  background: linear-gradient(180deg, var(--gold), rgba(212,175,55,0.1));
+  border-radius:2px 0 0 2px;
+}
+.volet-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212,175,55,0.2);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 24px rgba(212,175,55,0.05), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.volet-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+
+.volet-icon {
+  width:44px;height:44px; border-radius:12px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.volet-icon svg { width:20px;height:20px; stroke:var(--gold); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+
+.volet-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8px; letter-spacing:2px;
+  color: var(--gold); opacity:0.5;
+  text-transform:uppercase; margin-bottom:3px;
+}
+.volet-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px; font-weight:700;
+  color: var(--text); letter-spacing:0.5px;
+  text-transform: uppercase;
+}
+
+.volet-text {
+  font-size: 14px; line-height:1.7;
+  color: var(--text-dim); margin-bottom:18px;
+  font-weight:400;
+}
+
+.volet-points { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.volet-point {
+  display:flex; gap:12px; align-items:flex-start;
+  font-size:14px; color:var(--text-dim); line-height:1.6;
+}
+.volet-point-dot {
+  width:18px;height:18px;border-radius:50%;
+  background:var(--gold-dim);
+  border:1px solid var(--gold-border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0; margin-top:2px;
+}
+.volet-point-dot::after {
+  content:''; width:5px;height:5px;border-radius:50%;
+  background:var(--gold); opacity:0.8;
+}
+.volet-point strong { color:var(--text); font-weight:700; }
+
+/* ── PACKS ── */
+.packs-grid { display:flex; flex-direction:column; gap:16px; margin-bottom:32px; }
+
+.pack-card {
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  animation: riseIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+.pack-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.pack-header {
+  padding: 22px 24px 18px;
+  display:flex; align-items:center; justify-content:space-between;
+  border-bottom: 1px solid var(--glass-border);
+  position:relative; overflow:hidden;
+}
+.pack-header::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 100% at 0% 50%, rgba(212,175,55,0.05) 0%, transparent 70%);
+}
+
+.pack-tier {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8px; letter-spacing:2px;
+  text-transform:uppercase; margin-bottom:5px;
+}
+.pack-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase;
+}
+
+.pack-starter .pack-tier { color:rgba(150,200,255,0.6); }
+.pack-starter .pack-name { color:rgba(150,200,255,0.9); }
+.pack-pro .pack-tier { color:rgba(180,120,255,0.7); }
+.pack-pro .pack-name { color:rgba(180,120,255,1); }
+.pack-premium .pack-tier { color:var(--gold); }
+.pack-premium .pack-name {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+
+.pack-status-badge {
+  display:flex; align-items:center; gap:6px;
+  padding: 6px 14px; border-radius:20px;
+  font-family:'Orbitron',sans-serif;
+  font-size:8px; letter-spacing:1.5px; text-transform:uppercase;
+  font-weight:700; flex-shrink:0;
+}
+.badge-green {
+  background: var(--green-dim);
+  border: 1px solid rgba(0,230,118,0.3);
+  color: var(--green);
+}
+.badge-red {
+  background: var(--red-dim);
+  border: 1px solid rgba(255,61,87,0.3);
+  color: var(--red);
+  animation: badgePulse 1.2s ease-in-out infinite;
+}
+.badge-grey {
+  background: var(--grey-dim);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted);
+}
+@keyframes badgePulse {
+  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,61,87,0.3)}
+  50%{opacity:0.7;box-shadow:0 0 12px 3px rgba(255,61,87,0.15)}
+}
+.badge-dot { width:6px;height:6px;border-radius:50%; background:currentColor; }
+
+.pack-body { padding: 20px 24px; }
+
+.pack-services { display:flex; flex-direction:column; gap:12px; }
+
+.pack-service {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 16px; border-radius:12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+.pack-service:hover { background: rgba(255,255,255,0.04); }
+
+.service-info { display:flex; flex-direction:column; gap:2px; }
+.service-partner {
+  font-family:'Orbitron',sans-serif;
+  font-size:8px; letter-spacing:1.5px;
+  color:var(--text-muted); text-transform:uppercase;
+}
+.service-name {
+  font-size:14px; font-weight:700;
+  color:var(--text); letter-spacing:0.3px;
+}
+.service-status { display:flex; align-items:center; gap:6px; }
+.service-status-dot { width:6px;height:6px;border-radius:50%; }
+
+.commission-tag {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-light);
+  padding: 5px 12px; border-radius:20px;
+  font-family:'Orbitron',sans-serif;
+  font-size:9px; letter-spacing:1px;
+  font-weight:700; white-space:nowrap;
+}
+
+/* ── CYCLE PRO ── */
+.cycle-card {
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(180,120,255,0.15);
+  border-radius: 22px;
+  padding: 28px 24px;
+  margin-bottom: 32px;
+  position:relative; overflow:hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 40px rgba(180,120,255,0.03);
+  animation: riseIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+.cycle-card::before {
+  content:''; position:absolute; top:0;left:0;right:0; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(180,120,255,0.4), transparent);
+}
+
+.cycle-intro { font-size:14px; color:var(--text-dim); line-height:1.7; margin-bottom:24px; }
+
+.cycle-track {
+  display:flex; align-items:center; gap:0;
+  margin-bottom:20px; position:relative;
+}
+.cycle-step {
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;
+  position:relative;
+}
+.cycle-step:not(:last-child)::after {
+  content:''; position:absolute;
+  top:20px; left:50%; width:100%; height:1px;
+  background: linear-gradient(90deg, rgba(180,120,255,0.3), rgba(180,120,255,0.1));
+}
+.cycle-node {
+  width:40px;height:40px;border-radius:50%;
+  background: rgba(180,120,255,0.1);
+  border: 1px solid rgba(180,120,255,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',sans-serif;
+  font-size:11px; font-weight:700;
+  color:rgba(180,120,255,0.9); z-index:1;
+  position:relative;
+}
+.cycle-node.final {
+  background: rgba(212,175,55,0.12);
+  border-color: rgba(212,175,55,0.4);
+  color: var(--gold);
+  box-shadow: 0 0 20px rgba(212,175,55,0.1);
+}
+.cycle-bonus {
+  font-family:'Orbitron',sans-serif;
+  font-size:8px; letter-spacing:1px;
+  color:rgba(180,120,255,0.7); text-align:center;
+  line-height:1.3;
+}
+.cycle-bonus.final-bonus { color:var(--gold); }
+
+.cycle-reset {
+  display:flex;align-items:center;gap:10px;
+  background:rgba(212,175,55,0.06);
+  border:1px solid var(--gold-border);
+  border-radius:12px; padding:12px 16px;
+  font-size:13px; color:var(--text-dim);
+}
+.cycle-reset svg { width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0; }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  display:flex; flex-direction:column; gap:14px;
+  margin-bottom:32px;
+}
+
+.cta-card {
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 24px;
+  display:flex; align-items:center; gap:18px;
+  text-decoration:none;
+  transition: all 0.3s ease;
+  animation: riseIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+  position:relative; overflow:hidden;
+}
+.cta-card::before {
+  content:''; position:absolute; inset:0; border-radius:20px;
+  opacity:0; transition:opacity 0.3s;
+}
+.cta-card:hover { transform:translateY(-3px); }
+.cta-card:hover::before { opacity:1; }
+
+.cta-prospect {
+  border: 1px solid rgba(0,230,118,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.cta-prospect::before { background:rgba(0,230,118,0.03); }
+.cta-prospect:hover { box-shadow:0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(0,230,118,0.06); border-color:rgba(0,230,118,0.35); }
+
+.cta-register {
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.cta-register::before { background:rgba(212,175,55,0.03); }
+.cta-register:hover { box-shadow:0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(212,175,55,0.07); border-color:rgba(212,175,55,0.35); }
+
+.cta-icon {
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.cta-prospect .cta-icon { background:var(--green-dim); border:1px solid rgba(0,230,118,0.2); }
+.cta-register .cta-icon { background:var(--gold-dim); border:1px solid var(--gold-border); }
+.cta-icon svg { width:24px;height:24px; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.cta-prospect .cta-icon svg { stroke:var(--green); }
+.cta-register .cta-icon svg { stroke:var(--gold); }
+
+.cta-content { flex:1; }
+.cta-label {
+  font-family:'Orbitron',sans-serif;
+  font-size:8px;letter-spacing:2px;
+  text-transform:uppercase; margin-bottom:4px;
+}
+.cta-prospect .cta-label { color:rgba(0,230,118,0.6); }
+.cta-register .cta-label { color:rgba(212,175,55,0.6); }
+.cta-title {
+  font-size:16px;font-weight:700;
+  color:var(--text); letter-spacing:0.3px;
+  margin-bottom:3px;
+}
+.cta-desc { font-size:13px; color:var(--text-dim); line-height:1.5; }
+
+.cta-arrow {
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0; font-size:16px;
+  transition:transform 0.3s;
+}
+.cta-prospect .cta-arrow { background:var(--green-dim); color:var(--green); }
+.cta-register .cta-arrow { background:var(--gold-dim); color:var(--gold); }
+.cta-card:hover .cta-arrow { transform:translateX(4px); }
+
+/* ── RESSOURCES ── */
+.ressources-card {
+  background: var(--glass);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid var(--glass-border);
+  border-radius:22px; padding:28px 24px;
+  margin-bottom:32px;
+  display:flex; align-items:center; gap:20px;
+  animation: riseIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+.ressources-icon {
+  width:56px;height:56px;border-radius:16px;
+  background:var(--gold-dim);border:1px solid var(--gold-border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ressources-icon svg { width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round; }
+.ressources-content { flex:1; }
+.ressources-title { font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px; }
+.ressources-text { font-size:13px;color:var(--text-dim);line-height:1.6; }
+.ressources-wa {
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:white; padding:10px 18px; border-radius:10px;
+  margin-top:14px; text-decoration:none;
+  font-family:'Rajdhani',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:0.5px;
+  transition:all 0.3s; box-shadow:0 4px 16px rgba(37,211,102,0.25);
+}
+.ressources-wa:hover { box-shadow:0 6px 24px rgba(37,211,102,0.4); transform:translateY(-1px); }
+.ressources-wa svg { width:16px;height:16px;fill:white; }
+
+/* ── CONTACT ── */
+.contact-card {
+  background: var(--glass);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(37,211,102,0.15);
+  border-radius:22px; padding:28px 24px;
+  text-align:center; margin-bottom:32px;
+  position:relative;overflow:hidden;
+  animation: riseIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+.contact-card::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(37,211,102,0.3),transparent);
+}
+.contact-title { font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px; }
+.contact-text { font-size:13px;color:var(--text-dim);line-height:1.6;margin-bottom:20px; }
+.contact-wa-btn {
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,rgba(37,211,102,0.15),rgba(18,140,126,0.1));
+  border:1px solid rgba(37,211,102,0.3);
+  color:#25d366; padding:14px 28px; border-radius:50px;
+  text-decoration:none; font-family:'Orbitron',sans-serif;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  transition:all 0.3s; box-shadow:0 0 20px rgba(37,211,102,0.06);
+}
+.contact-wa-btn:hover { background:linear-gradient(135deg,rgba(37,211,102,0.25),rgba(18,140,126,0.15)); box-shadow:0 0 32px rgba(37,211,102,0.15); transform:translateY(-2px); }
+.contact-wa-btn svg { width:18px;height:18px;fill:#25d366; }
+
+/* ── FOOTER ── */
+.footer {
+  text-align:center;
+  font-family:'Orbitron',sans-serif;
+  font-size:8px;letter-spacing:2px;
+  color:rgba(212,175,55,0.2);text-transform:uppercase;
+}
+.footer span { margin:0 6px;opacity:0.5; }
+
+/* ── ANIMATIONS ── */
+@keyframes riseIn {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── WHATSAPP FAB ── */
+.wa-fab-wrap {
+  position:fixed;bottom:24px;left:16px;z-index:100;
+  cursor:grab; user-select:none; touch-action:none;
+  animation: riseIn 1s 0.5s both;
+}
+.wa-fab-wrap.dragging { cursor:grabbing; }
+.wa-fab-btn {
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;
+  box-shadow:0 8px 24px rgba(37,211,102,0.35);
+  animation:waPulse 3s ease-in-out infinite;
+  transition:transform 0.3s;
+}
+.wa-fab-btn:hover { transform:scale(1.08); }
+@keyframes waPulse {
+  0%,100%{box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.2)}
+  50%{box-shadow:0 8px 24px rgba(37,211,102,0.5),0 0 0 10px rgba(37,211,102,0)}
+}
+.wa-fab-btn svg { width:28px;height:28px;fill:white; }
+
+
+/* ══ NAV & PAGES ══ */
+/* ══ NAV ══ */
+.vc-nav {
+  position: fixed; top:0;left:0;right:0; z-index:200;
+  background: rgba(7,11,31,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(212,175,55,0.12);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.vc-nav.hidden { transform: translateY(-100%); }
+.vc-nav-inner {
+  max-width: 700px; margin:0 auto;
+  padding: 0 16px;
+  height: 56px;
+  display: flex; align-items:center; justify-content:space-between;
+  gap: 16px;
+}
+.vc-nav-logo {
+  display: flex; align-items:center; gap:8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; font-weight:900;
+  letter-spacing: 2px; text-transform:uppercase;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.vc-nav-logo svg { width:18px;height:18px;stroke:var(--gold); }
+
+.vc-nav-links {
+  display:flex; align-items:center; gap:4px;
+}
+.vc-nav-link {
+  display:inline-flex; align-items:center; gap:6px;
+  padding: 7px 13px; border-radius:10px;
+  font-family:'Rajdhani',sans-serif;
+  font-size: 13px; font-weight:600;
+  letter-spacing:0.5px;
+  color: var(--text-dim);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+  position:relative;
+}
+.vc-nav-link svg { width:14px;height:14px;flex-shrink:0; }
+.vc-nav-link:hover { color:var(--text); background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); }
+.vc-nav-link.active {
+  color:var(--gold-light);
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+}
+.vc-nav-link.nav-link-soon { opacity:0.4; cursor:not-allowed; }
+.vc-nav-link.nav-link-soon:hover { opacity:0.5; background:none; border-color:transparent; }
+.nav-soon-badge {
+  font-family:'Orbitron',sans-serif;
+  font-size:6px; letter-spacing:1px;
+  background:rgba(212,175,55,0.15);
+  border:1px solid rgba(212,175,55,0.2);
+  color:var(--gold);
+  padding:2px 5px; border-radius:4px;
+  text-transform:uppercase;
+}
+
+.vc-nav-toggle {
+  display:none; flex-direction:column; gap:4px;
+  background:none; border:none; cursor:pointer; padding:4px;
+}
+.vc-nav-toggle span {
+  display:block; width:20px; height:2px;
+  background:var(--gold); border-radius:2px;
+  transition: all 0.3s;
+}
+
+@media(max-width:540px){
+  .vc-nav-logo span { display:none; }
+  .vc-nav-toggle { display:flex; }
+  .vc-nav-links {
+    display:none; position:absolute;
+    top:56px; left:0; right:0;
+    flex-direction:column; gap:4px;
+    background:rgba(7,11,31,0.97);
+    backdrop-filter:blur(24px);
+    border-bottom:1px solid rgba(212,175,55,0.1);
+    padding:12px 16px 16px;
+  }
+  .vc-nav-links.open { display:flex; }
+  .vc-nav-link { width:100%; justify-content:flex-start; }
+}
+
+/* PAGE WRAPPER */
+.page-section { display:none; }
+.page-section.active { display:block; }
+
+/* ══ PAGE PARTENAIRES ══ */
+.partner-page { padding-top:8px; }
+.partner-hero {
+  background:rgba(255,255,255,0.025);
+  backdrop-filter:blur(32px);
+  -webkit-backdrop-filter:blur(32px);
+  border:1px solid var(--gold-border);
+  border-radius:28px;
+  padding:40px 32px 32px;
+  text-align:center;
+  position:relative; overflow:hidden;
+  margin-bottom:24px;
+  box-shadow:0 0 80px rgba(212,175,55,0.04),0 30px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(212,175,55,0.12);
+}
+.partner-hero::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--gold) 40%,var(--gold-light) 60%,transparent 100%);
+  opacity:0.6;
+}
+.partner-hero h2 {
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;font-size:24px;
+  letter-spacing:4px;text-transform:uppercase;
+  background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 45%,#9a7520 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:10px;
+}
+.partner-hero p {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:15px;color:var(--text-dim);
+  max-width:380px;margin:0 auto;line-height:1.6;
+}
+.partner-card {
+  background:var(--glass);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid var(--glass-border);
+  border-radius:22px;
+  padding:28px 26px;
+  position:relative;overflow:hidden;
+  margin-bottom:16px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.05);
+  transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.partner-card::before {
+  content:'';position:absolute;top:0;left:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--gold),rgba(212,175,55,0.1));
+  border-radius:2px 0 0 2px;
+}
+.partner-card:hover {
+  transform:translateY(-3px);
+  border-color:rgba(212,175,55,0.2);
+  box-shadow:0 16px 48px rgba(0,0,0,0.45),0 0 24px rgba(212,175,55,0.05),inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.partner-pole {
+  font-family:'Orbitron',sans-serif;
+  font-size:7px;letter-spacing:2.5px;
+  color:var(--gold);opacity:0.55;
+  text-transform:uppercase;margin-bottom:4px;
+}
+.partner-name {
+  font-family:'Rajdhani',sans-serif;
+  font-size:19px;font-weight:700;
+  color:var(--text);letter-spacing:0.5px;
+  text-transform:uppercase;margin-bottom:14px;
+}
+.partner-field {
+  margin-bottom:10px;
+}
+.partner-field-label {
+  font-family:'Orbitron',sans-serif;
+  font-size:7px;letter-spacing:1.5px;
+  color:rgba(212,175,55,0.4);text-transform:uppercase;
+  margin-bottom:3px;
+}
+.partner-field-text {
+  font-size:13px;color:var(--text-dim);line-height:1.65;
+}
+.partner-tracking-badge {
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(212,175,55,0.06);
+  border:1px solid rgba(212,175,55,0.15);
+  border-radius:8px;padding:6px 12px;
+  font-family:'Orbitron',sans-serif;
+  font-size:7px;letter-spacing:1px;
+  color:rgba(212,175,55,0.4);
+  text-transform:uppercase;margin-top:14px;
+}
+.partner-tracking-badge svg { width:10px;height:10px;stroke:rgba(212,175,55,0.4);fill:none;stroke-width:1.5; }
+
+/* ══ ADSENSE ZONE ══ */
+.adsense-slot {
+  background:rgba(255,255,255,0.015);
+  border:1px dashed rgba(255,255,255,0.07);
+  border-radius:14px;
+  padding:16px;margin:24px 0;
+  text-align:center;
+  min-height:90px;
+  display:flex;align-items:center;justify-content:center;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav class="vc-nav" id="vcNav">
+  <div class="vc-nav-inner">
+    <div class="vc-nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>VALOR COMPANY</span>
+    </div>
+    <button class="vc-nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="vc-nav-links" id="navLinks">
+      <a href="#" class="vc-nav-link active" onclick="showPage('agents',event)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Programme Agents
+      </a>
+      <a href="#" class="vc-nav-link" onclick="showPage('partenaires',event)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Partenaires
+      </a>
+      <a href="#" class="vc-nav-link nav-link-soon" title="Bientôt disponible">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Tableau de Bord
+        <span class="nav-soon-badge">Bientôt</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="bg"></div>
+<div class="bg-grid"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="scan"></div>
+
+<!-- ══ PAGE : AGENTS ══ -->
+<div class="page-section active" id="page-agents">
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Réseau Officiel · Actif</div>
+    <h1>VALOR COMPANY</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-subtitle">Rejoignez un réseau structuré, performant et rémunérateur.<br>Votre engagement, notre accompagnement.</p>
+    <a href="#enregistrement" class="hero-cta">Rejoindre le réseau <span class="hero-cta-arrow">→</span></a>
+  </div>
+
+  <!-- VOLETS -->
+  <div class="section-label">Programme des Agents</div>
+  <div class="volet-grid">
+
+    <!-- V1 -->
+    <div class="volet-card" style="animation-delay:0.05s">
+      <div class="volet-header">
+        <div class="volet-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="volet-num">Volet 01</div>
+          <div class="volet-title">Liberté d'Exercice</div>
+        </div>
+      </div>
+      <p class="volet-text">Notre programme est conçu pour s'intégrer à votre vie, quelle que soit votre situation. Aucun bureau fixe, aucun horaire imposé.</p>
+      <ul class="volet-points">
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Digital & Mobile</strong> — Votre téléphone et vos réseaux sociaux deviennent vos premiers outils de prospection.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Autonomie totale</strong> — Étudiant, salarié ou en reconversion, le programme s'adapte à votre rythme.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Terrain libre</strong> — Prospectez à votre convenance, sans contrainte géographique.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Réseau de proximité</strong> — Votre entourage est votre premier levier commercial.</span></li>
+      </ul>
+    </div>
+
+    <!-- V2 -->
+    <div class="volet-card" style="animation-delay:0.1s">
+      <div class="volet-header">
+        <div class="volet-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div>
+          <div class="volet-num">Volet 02</div>
+          <div class="volet-title">Rémunération</div>
+        </div>
+      </div>
+      <p class="volet-text">Chaque vente validée génère une commission directe. Plus vous êtes actif, plus votre revenu progresse.</p>
+      <ul class="volet-points">
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Commission directe</strong> — Un pourcentage attractif sur chaque service vendu et validé par nos partenaires.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Prime Booster</strong> — 5 000 FCFA versés pour chaque premier client orienté vers un Pack Premium, en supplément de votre commission.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Cycle Infini</strong> — Un système de bonus progressifs réservé au Pack Pro, se réinitialisant toutes les 10 ventes validées.</span></li>
+      </ul>
+    </div>
+
+    <!-- V3 -->
+    <div class="volet-card" style="animation-delay:0.15s">
+      <div class="volet-header">
+        <div class="volet-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div>
+          <div class="volet-num">Volet 03</div>
+          <div class="volet-title">Formation & Ressources</div>
+        </div>
+      </div>
+      <p class="volet-text">Valor Company met à votre disposition des ressources stratégiques pour vous aider à convaincre et identifier les bons prospects.</p>
+      <ul class="volet-points">
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Guides PDF exclusifs</strong> — Méthodes de ciblage, groupes à privilégier, argumentaires éprouvés.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Disponibles sur demande</strong> — L'ensemble des ressources est transmis via le groupe WhatsApp officiel des agents.</span></li>
+      </ul>
+    </div>
+
+    <!-- V4 -->
+    <div class="volet-card" style="animation-delay:0.2s">
+      <div class="volet-header">
+        <div class="volet-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <div class="volet-num">Volet 04</div>
+          <div class="volet-title">Votre Mission</div>
+        </div>
+      </div>
+      <p class="volet-text">Votre rôle ne consiste pas à conclure la vente — il consiste à ouvrir la porte. Valor Company prend le relais en trois étapes.</p>
+      <ul class="volet-points">
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Recommandation</strong> — Dès qu'un prospect manifeste de l'intérêt, soumettez sa mise en relation via le formulaire officiel.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Prise en charge</strong> — L'équipe Valor Company contacte le prospect et fixe le rendez-vous technique avec la structure partenaire.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Suivi relationnel</strong> — Maintenez un contact courtois jusqu'à la validation du paiement. C'est ce paiement qui déclenche votre commission.</span></li>
+      </ul>
+    </div>
+
+    <!-- V5 -->
+    <div class="volet-card" style="animation-delay:0.25s">
+      <div class="volet-header">
+        <div class="volet-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div class="volet-num">Volet 05</div>
+          <div class="volet-title">Enregistrement Officiel</div>
+        </div>
+      </div>
+      <p class="volet-text">L'enregistrement est obligatoire. Il vous attribue un matricule officiel et garantit le versement de vos commissions sans délai.</p>
+      <ul class="volet-points">
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Votre profil</strong> — Indiquez votre mode de prospection : Digital, Terrain ou Mixte.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Votre expérience</strong> — Précisez si vous avez déjà exercé une activité commerciale ou de prospection.</span></li>
+        <li class="volet-point"><span class="volet-point-dot"></span><span><strong>Votre sécurité</strong> — Sans enregistrement, aucune commission ne peut être traitée.</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- CATALOGUE PACKS -->
+  <div class="section-label">Catalogue des Offres</div>
+  <div class="packs-grid">
+
+    <!-- STARTER -->
+    <div class="pack-card pack-starter" style="animation-delay:0.1s">
+      <div class="pack-header">
+        <div>
+          <div class="pack-tier">Niveau d'entrée</div>
+          <div class="pack-name">Pack Starter</div>
+        </div>
+        <div class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="starter-status-text">Accessible</span></div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-services">
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">JM Promo</span>
+              <span class="service-name">Maintenance Mécanique</span>
+            </div>
+            <div class="commission-tag">5% du TTC</div>
+          </div>
+          <div class="pack-service" style="flex-direction:column;align-items:flex-start;gap:8px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+              <div class="service-info">
+                <span class="service-partner">Mobile Optique</span>
+                <span class="service-name">Pack Enfants</span>
+              </div>
+              <div class="commission-tag">5 000 FCFA</div>
+            </div>
+            <div style="width:100%;background:rgba(212,175,55,0.04);border:1px solid rgba(212,175,55,0.1);border-radius:8px;padding:8px 12px;">
+              <div style="font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;color:rgba(212,175,55,0.5);text-transform:uppercase;margin-bottom:4px;">Grille tarifaire · Usage interne</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">Tarif de référence à partir de <strong style="color:var(--text);">35 000 FCFA</strong>. La gamme s'étend selon la qualité des verres et montures choisies par le client — <em style="color:rgba(232,234,246,0.4);font-style:italic;">votre commission reste fixe quelle que soit la prestation finale.</em></div>
+            </div>
+          </div>
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">Global International Travel</span>
+              <span class="service-name">Visa</span>
+              <span id="visa-status" class="service-partner" style="margin-top:2px;"></span>
+            </div>
+            <div class="commission-tag">5 000 FCFA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRO -->
+    <div class="pack-card pack-pro" style="animation-delay:0.15s">
+      <div class="pack-header">
+        <div>
+          <div class="pack-tier">Cycle Infini · Bonus Progressifs</div>
+          <div class="pack-name">Pack Pro</div>
+        </div>
+        <div class="pack-status-badge" id="pro-badge"><span class="badge-dot"></span><span id="pro-status-text">Accessible</span></div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-services">
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">JM Promo</span>
+              <span class="service-name">Formations Mécaniques</span>
+              <span id="jm-status" class="service-partner" style="margin-top:2px;"></span>
+            </div>
+            <div class="commission-tag">10 000 FCFA</div>
+          </div>
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">René Décor</span>
+              <span class="service-name">Formations Peinture & Staff</span>
+              <span id="rene-status" class="service-partner" style="margin-top:2px;"></span>
+            </div>
+            <div class="commission-tag">10 000 FCFA</div>
+          </div>
+          <div class="pack-service" style="flex-direction:column;align-items:flex-start;gap:8px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+              <div class="service-info">
+                <span class="service-partner">Mobile Optique</span>
+                <span class="service-name">Pack Confort</span>
+              </div>
+              <div class="commission-tag">10 000 FCFA</div>
+            </div>
+            <div style="width:100%;background:rgba(180,120,255,0.04);border:1px solid rgba(180,120,255,0.1);border-radius:8px;padding:8px 12px;">
+              <div style="font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;color:rgba(180,120,255,0.5);text-transform:uppercase;margin-bottom:4px;">Grille tarifaire · Usage interne</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">Tarif de référence à partir de <strong style="color:var(--text);">45 000 FCFA</strong>. La solution optique s'adapte aux besoins du client, avec des options de verres de marques standards ou internationales selon son budget.</div>
+            </div>
+          </div>
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">Global International Travel</span>
+              <span class="service-name">AVI / Logement</span>
+              <span id="avi-status" class="service-partner" style="margin-top:2px;"></span>
+            </div>
+            <div class="commission-tag">10 000 FCFA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="pack-card pack-premium" style="animation-delay:0.2s">
+      <div class="pack-header">
+        <div>
+          <div class="pack-tier">Commissions Élevées · Sans Cycle</div>
+          <div class="pack-name">Pack Premium</div>
+        </div>
+        <div class="pack-status-badge badge-green"><span class="badge-dot"></span><span>Accessible</span></div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-services">
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">JM Promo</span>
+              <span class="service-name">Gestion de Flotte</span>
+            </div>
+            <div class="commission-tag">50K – 200K+ FCFA</div>
+          </div>
+          <div class="pack-service">
+            <div class="service-info">
+              <span class="service-partner">Global International Travel</span>
+              <span class="service-name">Admission Internationale</span>
+              <span id="admission-status" class="service-partner" style="margin-top:2px;"></span>
+            </div>
+            <div class="commission-tag">20 000 FCFA</div>
+          </div>
+          <div class="pack-service" style="flex-direction:column;align-items:flex-start;gap:8px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+              <div class="service-info">
+                <span class="service-partner">Mobile Optique</span>
+                <span class="service-name">Pack VIP</span>
+              </div>
+              <div class="commission-tag">15 000 FCFA min.</div>
+            </div>
+            <div style="width:100%;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.15);border-radius:8px;padding:8px 12px;">
+              <div style="font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;color:rgba(212,175,55,0.6);text-transform:uppercase;margin-bottom:4px;">Grille tarifaire · Usage interne</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.6;">Tarif de référence à partir de <strong style="color:var(--gold-light);">85 000 FCFA</strong> — prestations incluant cadres de marque associés à des verres haute gamme. <em style="color:rgba(232,234,246,0.5);font-style:italic;">Au sein de ce palier, la qualité finale est à la discrétion du client : plus l'offre est valorisée, plus votre marge de négociation s'élargit — votre commission minimale de 15 000 FCFA est garantie, et peut progresser avec la montée en gamme.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CYCLE INFINI PRO -->
+  <div class="section-label">Cycle Infini — Pack Pro</div>
+  <div class="cycle-card" style="animation-delay:0.1s">
+    <p class="cycle-intro">Le compteur se réinitialise toutes les 10 ventes validées dans la catégorie Pro. Chaque palier atteint déclenche un bonus supplémentaire, s'ajoutant à votre commission habituelle.</p>
+    <div class="cycle-track">
+      <div class="cycle-step">
+        <div class="cycle-node">2</div>
+        <div class="cycle-bonus">+ 2 500<br>FCFA</div>
+      </div>
+      <div class="cycle-step">
+        <div class="cycle-node">5</div>
+        <div class="cycle-bonus">+ 5 000<br>FCFA</div>
+      </div>
+      <div class="cycle-step">
+        <div class="cycle-node">8</div>
+        <div class="cycle-bonus">+ 10 000<br>FCFA</div>
+      </div>
+      <div class="cycle-step">
+        <div class="cycle-node final">10</div>
+        <div class="cycle-bonus final-bonus">+ 15 000<br>FCFA</div>
+      </div>
+    </div>
+    <div class="cycle-reset">
+      <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+      <span>À 10 ventes validées, le compteur se remet à zéro et le cycle recommence indéfiniment.</span>
+    </div>
+  </div>
+
+  <!-- CALENDRIER DES FORMATIONS -->
+  <div class="section-label">Calendrier des Formations</div>
+  <div class="cycle-card" style="animation-delay:0.1s;border-color:rgba(212,175,55,0.15);">
+    <p class="cycle-intro" style="margin-bottom:20px;">Les inscriptions aux formations restent accessibles jusqu'à <strong style="color:var(--gold-light)">un mois après la date de rentrée</strong> (délai de grâce). Passé ce délai, la session est définitivement clôturée.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:14px 16px;">
+        <div style="font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:6px;">JM Promo · Mécanique</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div>
+            <span style="font-size:14px;font-weight:700;color:var(--text);">Rentrée · 15 Octobre</span>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Délai de grâce jusqu'au <strong style="color:rgba(255,61,87,0.8)">14 Novembre</strong></div>
+          </div>
+          <div id="badge-jm-cal" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-jm-cal">Accessible</span></div>
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:14px 16px;">
+        <div style="font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:6px;">René Décor · Peinture & Staff</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:var(--text);">Session 1 · 20 Octobre</span>
+              <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Délai de grâce jusqu'au <strong style="color:rgba(255,61,87,0.8)">19 Novembre</strong></div>
+            </div>
+            <div id="badge-rene1" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-rene1">Accessible</span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:var(--text);">Session 2 · 23 Février</span>
+              <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Délai de grâce jusqu'au <strong style="color:rgba(255,61,87,0.8)">22 Mars</strong></div>
+            </div>
+            <div id="badge-rene2" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-rene2">Accessible</span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:var(--text);">Session 3 · 22 Juin</span>
+              <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Délai de grâce jusqu'au <strong style="color:rgba(255,61,87,0.8)">21 Juillet</strong></div>
+            </div>
+            <div id="badge-rene3" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-rene3">Accessible</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:14px 16px;">
+        <div style="font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:10px;">Global International Travel · Fenêtres d'Accès</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:var(--text);">Admission Internationale</span>
+              <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">01 Octobre → 31 Janvier</div>
+            </div>
+            <div id="badge-admission-cal" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-admission-cal">Accessible</span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:var(--text);">AVI / Logement</span>
+              <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">01 Février → 31 Juillet</div>
+            </div>
+            <div id="badge-avi-cal" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-avi-cal">Accessible</span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:var(--text);">Visa</span>
+              <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">01 Mai → 31 Août</div>
+            </div>
+            <div id="badge-visa-cal" class="pack-status-badge badge-green"><span class="badge-dot"></span><span id="text-visa-cal">Accessible</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESSOURCES -->
+  <div class="section-label">Ressources & Groupes Officiels</div>
+  <div class="ressources-card" style="animation-delay:0.1s;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:flex-start;gap:18px;margin-bottom:20px;">
+      <div class="ressources-icon" style="flex-shrink:0;">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="ressources-content">
+        <div class="ressources-title">Guides & Ressources Exclusives</div>
+        <div class="ressources-text">L'ensemble de nos guides PDF stratégiques — méthodes de ciblage, argumentaires et cercles d'affaires à privilégier — est transmis directement via les groupes WhatsApp officiels des agents.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+      <a href="https://chat.whatsapp.com/Dvz0dBHmDAsHpaSUbwcbJd?mode=gi_t" target="_blank" class="ressources-wa" style="justify-content:flex-start;gap:12px;border-radius:12px;">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div>
+          <div style="font-size:11px;font-family:'Orbitron',sans-serif;letter-spacing:1px;">Groupe Agents · Digital & Réseaux</div>
+          <div style="font-size:11px;opacity:0.7;font-family:'Rajdhani',sans-serif;margin-top:2px;">Ressources, guides et prospection en ligne</div>
+        </div>
+      </a>
+      <a href="https://chat.whatsapp.com/Dvz0dBHmDAsHpaSUbwcbJd?mode=gi_t" target="_blank" class="ressources-wa" style="justify-content:flex-start;gap:12px;border-radius:12px;background:linear-gradient(135deg,rgba(37,180,102,0.2),rgba(18,110,80,0.12));">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div>
+          <div style="font-size:11px;font-family:'Orbitron',sans-serif;letter-spacing:1px;">Groupe Agents · Terrain & Proximité</div>
+          <div style="font-size:11px;opacity:0.7;font-family:'Rajdhani',sans-serif;margin-top:2px;">Stratégies de prospection directe et terrain</div>
+        </div>
+      </a>
+      <a href="https://chat.whatsapp.com/Dvz0dBHmDAsHpaSUbwcbJd?mode=gi_t" target="_blank" class="ressources-wa" style="justify-content:flex-start;gap:12px;border-radius:12px;background:linear-gradient(135deg,rgba(20,160,90,0.15),rgba(10,90,60,0.1));">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div>
+          <div style="font-size:11px;font-family:'Orbitron',sans-serif;letter-spacing:1px;">Réseau Partenaires · Valor Company</div>
+          <div style="font-size:11px;opacity:0.7;font-family:'Rajdhani',sans-serif;margin-top:2px;">Annonces officielles et opportunités exclusives</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA FORMULAIRES -->
+  <div class="section-label">Actions</div>
+  <div class="cta-section">
+    <a href="https://tally.so/r/QKrvYp" target="_blank" class="cta-card cta-prospect" style="animation-delay:0.05s">
+      <div class="cta-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="cta-content">
+        <div class="cta-label">Volet 04 · Mission</div>
+        <div class="cta-title">Soumettre un Prospect</div>
+        <div class="cta-desc">Formulaire officiel de mise en relation — à remplir dès qu'un prospect est intéressé.</div>
+      </div>
+      <div class="cta-arrow">→</div>
+    </a>
+
+    <a href="https://tally.so/r/ODPEya" target="_blank" id="enregistrement" class="cta-card cta-register" style="animation-delay:0.1s">
+      <div class="cta-icon">
+        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+      </div>
+      <div class="cta-content">
+        <div class="cta-label">Volet 05 · Statut Officiel</div>
+        <div class="cta-title">S'enregistrer comme Agent</div>
+        <div class="cta-desc">Officialisez votre statut pour recevoir votre matricule et sécuriser vos paiements.</div>
+      </div>
+      <div class="cta-arrow">→</div>
+    </a>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section-label">Assistance</div>
+  <div class="contact-card" style="animation-delay:0.1s">
+    <div class="contact-title">Une équipe disponible pour vous accompagner</div>
+    <div class="contact-text">Pour toute question relative au programme, aux packs ou à vos commissions, notre service client est joignable directement sur WhatsApp.</div>
+    <a href="https://wa.me/237672234415" target="_blank" class="contact-wa-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Contacter le Service Client
+    </a>
+  </div>
+
+  <div class="footer"><span>© VALOR COMPANY</span>·<span>Programme Officiel</span>·<span>Tous droits réservés</span></div>
+
+</div><!-- /page agents -->
+</div><!-- /page-section agents -->
+
+<!-- ══ PAGE : PARTENAIRES ══ -->
+<div class="page-section" id="page-partenaires">
+<div class="page partner-page">
+
+  <!-- AdSense Zone Partenaires -->
+  <div class="adsense-slot">
+    <!-- ADSENSE_SLOT_PARTENAIRES -->
+    <!-- Remplacez ce commentaire par votre bloc AdSense une fois approuvé -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+  </div>
+
+  <div class="partner-hero">
+    <div class="hero-badge" style="margin-bottom:16px;"><span class="hero-badge-dot"></span>Réseau Officiel · Structures Agréées</div>
+    <h2>Nos Partenaires</h2>
+    <p>Des structures sélectionnées pour leur excellence, formant le socle opérationnel de l'écosystème Valor Company.</p>
+  </div>
+
+  <!-- GLOBAL TRAVEL -->
+  <div class="section-label">Pôle 01 · Mobilité Internationale</div>
+  <div class="partner-card">
+    <div class="partner-pole">Pôle Mobilité Internationale</div>
+    <div class="partner-name">Global International Travel</div>
+    <div class="partner-field">
+      <div class="partner-field-label">Services</div>
+      <div class="partner-field-text">Accompagnement stratégique et complet des procédures d'immigration et de voyage.</div>
+    </div>
+    <div class="partner-field">
+      <div class="partner-field-label">Engagement</div>
+      <div class="partner-field-text">Une expertise de référence dédiée à la concrétisation de vos projets d'expatriation, garantissant professionnalisme et totale transparence.</div>
+    </div>
+    <div class="partner-tracking-badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Lien de tracking · Intégration en cours
+    </div>
+  </div>
+
+  <!-- GARAGE JM PROMO -->
+  <div class="section-label">Pôle 02 · Automobile</div>
+  <div class="partner-card">
+    <div class="partner-pole">Pôle Automobile</div>
+    <div class="partner-name">Garage JM Promo</div>
+    <div class="partner-field">
+      <div class="partner-field-label">Description</div>
+      <div class="partner-field-text">Véritable centre de haute technicité, JM PROMO redéfinit les standards de la maintenance automobile.</div>
+    </div>
+    <div class="partner-field">
+      <div class="partner-field-label">La Différence</div>
+      <div class="partner-field-text">Une approche technologique avancée, utilisant des outils de diagnostic de pointe pour une gestion rigoureuse et optimisée de votre parc automobile.</div>
+    </div>
+    <div class="partner-tracking-badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Lien de tracking · Intégration en cours
+    </div>
+  </div>
+
+  <!-- RENÉ DÉCORS -->
+  <div class="section-label">Pôle 03 · Formation & Insertion</div>
+  <div class="partner-card">
+    <div class="partner-pole">Pôle Formation & Insertion</div>
+    <div class="partner-name">René Décors</div>
+    <div class="partner-field">
+      <div class="partner-field-label">Domaines</div>
+      <div class="partner-field-text">Peinture bâtiment et Staff — décoration d'intérieur.</div>
+    </div>
+    <div class="partner-field">
+      <div class="partner-field-label">Mission</div>
+      <div class="partner-field-text">Répondre concrètement au défi de l'emploi en dotant la jeunesse de compétences techniques pour une autonomie financière immédiate.</div>
+    </div>
+    <div class="partner-field">
+      <div class="partner-field-label">Certification</div>
+      <div class="partner-field-text">Un cursus certifiant, conçu pour répondre avec précision aux exigences réelles du marché de l'emploi local.</div>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.2);border-radius:10px;padding:7px 14px;margin-top:4px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span style="font-family:'Orbitron',sans-serif;font-size:7.5px;letter-spacing:1.5px;color:rgba(212,175,55,0.75);text-transform:uppercase;">Formation agréée MINEFOP</span>
+    </div>
+    <div class="partner-tracking-badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Lien de tracking · Intégration en cours
+    </div>
+  </div>
+
+  <!-- MOBILE OPTIQUE -->
+  <div class="section-label">Pôle 04 · Santé Visuelle</div>
+  <div class="partner-card">
+    <div class="partner-pole">Pôle Santé Visuelle</div>
+    <div class="partner-name">Mobile Optique</div>
+    <div class="partner-field">
+      <div class="partner-field-label">Optique</div>
+      <div class="partner-field-text">Solutions visuelles sur mesure, offrant des verres de marques internationales ou standards, adaptés à chaque budget.</div>
+    </div>
+    <div class="partner-field">
+      <div class="partner-field-label">Chirurgie</div>
+      <div class="partner-field-text">Un accompagnement privilégié vers un réseau de structures partenaires pour vos interventions de chirurgie oculaire, via l'expertise de Mobile Optique.</div>
+    </div>
+    <div class="partner-tracking-badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Lien de tracking · Intégration en cours
+    </div>
+  </div>
+
+  <!-- AdSense Zone bas de page -->
+  <div class="adsense-slot">
+    <!-- ADSENSE_SLOT_BOTTOM -->
+    <!-- Remplacez ce commentaire par votre bloc AdSense une fois approuvé -->
+  </div>
+
+  <div class="footer"><span>© VALOR COMPANY</span>·<span>Partenaires Officiels</span>·<span>Tous droits réservés</span></div>
+</div>
+</div><!-- /page-section partenaires -->
+
+<!-- WA FAB -->
+<div class="wa-fab-wrap" id="waFab">
+  <button class="wa-fab-btn" onclick="window.open('https://wa.me/237672234415','_blank')" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </button>
+</div>
+
+<script>
+// ── STATUTS DYNAMIQUES ──
+function getStatus(dateRentree) {
+  const now = new Date();
+  const rentree = new Date(dateRentree);
+  const fermeture = new Date(rentree); fermeture.setDate(fermeture.getDate() + 31);
+  const alerte = new Date(rentree); alerte.setDate(alerte.getDate() - 14);
+  if (now >= fermeture) return 'closed';
+  if (now >= rentree) return 'urgent';
+  if (now >= alerte) return 'alert';
+  return 'open';
+}
+
+function getGlobalStatus(dates) {
+  // Retourne le statut le plus "actif" parmi plusieurs dates
+  let best = 'closed';
+  for (const d of dates) {
+    const s = getStatus(d);
+    if (s === 'urgent') return 'urgent';
+    if (s === 'alert') best = 'alert';
+    else if (s === 'open' && best === 'closed') best = 'open';
+  }
+  return best;
+}
+
+function getWindowStatus(start, end) {
+  const now = new Date();
+  const y = now.getFullYear();
+  const s = new Date(`${y}/${start}`);
+  let e = new Date(`${y}/${end}`);
+  if (e < s) e = new Date(`${y+1}/${end}`);
+  const alert14 = new Date(e); alert14.setDate(alert14.getDate() - 14);
+  if (now > e) return 'closed';
+  if (now >= alert14) return 'urgent';
+  if (now >= s) return 'open';
+  return 'closed';
+}
+
+function applyBadge(badgeEl, textEl, status, labelOpen, labelUrgent, labelClosed) {
+  badgeEl.className = 'pack-status-badge';
+  if (status === 'closed') {
+    badgeEl.classList.add('badge-grey');
+    textEl.textContent = labelClosed || 'Non Accessible';
+  } else if (status === 'urgent' || status === 'alert') {
+    badgeEl.classList.add('badge-red');
+    textEl.textContent = labelUrgent || 'Dernière Chance';
+  } else {
+    badgeEl.classList.add('badge-green');
+    textEl.textContent = labelOpen || 'Accessible';
+  }
+}
+
+function applyServiceStatus(el, status) {
+  if (!el) return;
+  if (status === 'closed') {
+    el.textContent = 'Session clôturée'; el.style.color = 'rgba(255,61,87,0.6)';
+  } else if (status === 'urgent' || status === 'alert') {
+    el.textContent = 'Délai de grâce · Dernière chance'; el.style.color = 'rgba(255,61,87,0.8)';
+  } else {
+    el.textContent = 'Inscriptions ouvertes'; el.style.color = 'rgba(0,230,118,0.7)';
+  }
+}
+
+function initStatuts() {
+  const y = new Date().getFullYear();
+
+  // JM PROMO — rentrée 15 Oct
+  const jmStatus = getStatus(`${y}/10/15`);
+  applyServiceStatus(document.getElementById('jm-status'), jmStatus);
+
+  // RENÉ DÉCOR — 3 rentrées
+  const reneStatus = getGlobalStatus([`${y}/10/20`, `${y}/02/23`, `${y}/06/22`]);
+  applyServiceStatus(document.getElementById('rene-status'), reneStatus);
+
+  // Badge Pack Pro (basé sur formations)
+  const proBadge = document.getElementById('pro-badge');
+  const proText = document.getElementById('pro-status-text');
+  const proStatus = (jmStatus === 'closed' && reneStatus === 'closed') ? 'closed' :
+                    (jmStatus === 'urgent' || reneStatus === 'urgent') ? 'urgent' : 'open';
+  applyBadge(proBadge, proText, proStatus, 'Accessible', 'Dernière Chance', 'Fermé');
+
+  // GLOBAL TRAVEL — fenêtres
+  const admissionStatus = getWindowStatus('10/01', '01/31');
+  applyServiceStatus(document.getElementById('admission-status'), admissionStatus);
+
+  const aviStatus = getWindowStatus('02/01', '07/31');
+  applyServiceStatus(document.getElementById('avi-status'), aviStatus);
+
+  const visaStatus = getWindowStatus('05/01', '08/31');
+  applyServiceStatus(document.getElementById('visa-status'), visaStatus);
+}
+
+initStatuts();
+
+// ── CALENDRIER BADGES ──
+function applyCalBadge(badgeId, textId, status) {
+  const b = document.getElementById(badgeId);
+  const t = document.getElementById(textId);
+  if (!b || !t) return;
+  b.className = 'pack-status-badge';
+  if (status === 'closed') {
+    b.classList.add('badge-grey'); t.textContent = 'Clôturé';
+  } else if (status === 'urgent' || status === 'alert') {
+    b.classList.add('badge-red'); t.textContent = 'Délai de Grâce';
+  } else {
+    b.classList.add('badge-green'); t.textContent = 'Accessible';
+  }
+}
+const y2 = new Date().getFullYear();
+applyCalBadge('badge-jm-cal',        'text-jm-cal',        getStatus(`${y2}/10/15`));
+applyCalBadge('badge-rene1',         'text-rene1',         getStatus(`${y2}/10/20`));
+applyCalBadge('badge-rene2',         'text-rene2',         getStatus(`${y2}/02/23`));
+applyCalBadge('badge-rene3',         'text-rene3',         getStatus(`${y2}/06/22`));
+applyCalBadge('badge-admission-cal', 'text-admission-cal', getWindowStatus('10/01','01/31'));
+applyCalBadge('badge-avi-cal',       'text-avi-cal',       getWindowStatus('02/01','07/31'));
+applyCalBadge('badge-visa-cal',      'text-visa-cal',      getWindowStatus('05/01','08/31'));
+
+// ── FAB DRAGGABLE ──
+(function() {
+  const w = document.getElementById('waFab');
+  let drag = false, moved = false, sx, sy;
+  function down(e) {
+    drag = true; moved = false;
+    w.classList.add('dragging');
+    const cx = e.touches ? e.touches[0].clientX : e.clientX;
+    const cy = e.touches ? e.touches[0].clientY : e.clientY;
+    const r = w.getBoundingClientRect();
+    if (!w.style.top || w.style.top === 'auto') {
+      w.style.left = r.left+'px'; w.style.top = r.top+'px';
+      w.style.bottom = 'auto'; w.style.right = 'auto';
+    }
+    sx = cx - r.left; sy = cy - r.top;
+    e.preventDefault();
+  }
+  function move(e) {
+    if (!drag) return; moved = true;
+    const cx = e.touches ? e.touches[0].clientX : e.clientX;
+    const cy = e.touches ? e.touches[0].clientY : e.clientY;
+    const r = w.getBoundingClientRect();
+    let nl = cx-sx, nt = cy-sy;
+    nl = Math.max(0, Math.min(nl, window.innerWidth-r.width));
+    nt = Math.max(0, Math.min(nt, window.innerHeight-r.height));
+    w.style.left = nl+'px'; w.style.top = nt+'px';
+  }
+  function up() { drag = false; w.classList.remove('dragging'); }
+  w.addEventListener('mousedown', down, {passive:false});
+  document.addEventListener('mousemove', move);
+  document.addEventListener('mouseup', up);
+  w.addEventListener('touchstart', down, {passive:false});
+  document.addEventListener('touchmove', move, {passive:false});
+  document.addEventListener('touchend', up);
+})();
+</script>
+<script>
+// ══ NAVIGATION MULTI-PAGES ══
+function showPage(pageId, event) {
+  if (event) { event.preventDefault(); event.stopPropagation(); }
+
+  // Masquer toutes les pages
+  document.querySelectorAll('.page-section').forEach(function(p) {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+
+  // Désactiver tous les liens nav
+  document.querySelectorAll('.vc-nav-link').forEach(function(l) {
+    l.classList.remove('active');
+  });
+
+  // Afficher la page cible
+  var target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('active');
+    target.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Activer le bon lien nav
+  var activeLink = document.querySelector('[onclick*="showPage(\'' + pageId + '\'"]');
+  if (activeLink) activeLink.classList.add('active');
+
+  // Fermer le menu mobile si ouvert
+  var navLinks = document.getElementById('navLinks');
+  if (navLinks) navLinks.classList.remove('open');
+}
+
+// Toggle menu mobile
+document.getElementById('navToggle').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// Masquer nav au scroll bas, réafficher au scroll haut
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const cur = window.scrollY;
+  const nav = document.getElementById('vcNav');
+  if (cur > lastScroll && cur > 80) {
+    nav.classList.add('hidden');
+  } else {
+    nav.classList.remove('hidden');
+  }
+  lastScroll = cur;
+}, { passive: true });
+</script>
+</body>
+</html>
