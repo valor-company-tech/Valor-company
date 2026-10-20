@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-MONEY DIGITAL SERVICES • Annuaire Mondial, Affiliation & SASC</title>
+  <meta name="description" content="Plateforme mondiale intégrant un Annuaire d'entreprises et de services, un Programme d'Affiliation multi-gains et le Système de Scraping et Cartographie des Niches (SASC)." />
+  <link rel="canonical" href="https://b-money.digital/#/accueil" id="canonicalLink" />
+
+  <!-- Supabase JS Client v2.45.4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    if (window.tailwind) {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              night: {
+                950: '#030712',
+                900: '#0b1329',
+                800: '#111e3f',
+                700: '#1b2d5a',
+              },
+              brand: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                200: '#a7f3d0',
+                300: '#6ee7b7',
+                400: '#34d399',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+                800: '#065f46',
+                900: '#064e3b',
+              }
+            },
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #030712;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      margin: 0;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #0b1329;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <!-- Structured Data JSON-LD Container -->
+  <script type="application/ld+json" id="jsonLdScript">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "B-MONEY DIGITAL SERVICES",
+    "url": "https://b-money.digital"
+  }
+  </script>
+</head>
+<body class="bg-night-950 text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-night-950">
+
+  <!-- ================= TOP TICKER ================= -->
+  <div class="bg-night-900/90 border-b border-slate-800/80 px-4 py-2 text-xs text-slate-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+        <span class="font-semibold text-brand-300">INFRASTRUCTURE B-MONEY ACTIVE</span>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <span id="headerLiveCounter" class="text-slate-300 font-medium">Chargement des données mondiales...</span>
+      </div>
+      <div class="flex items-center gap-3 text-[11px] text-slate-400">
+        <span class="text-slate-400">Scanner SASC : <strong class="text-brand-400">Détection continue</strong></span>
+        <span class="text-slate-600">•</span>
+        <span class="text-slate-400">Caution Sécurisée : <strong class="text-white">Escrow 30j</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-night-950/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#/accueil" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-xl p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 flex items-center justify-center text-night-950 font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+          B
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-black text-xl tracking-tight text-white font-display">B-MONEY</span>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/30">SERVICES</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium hidden sm:block">Annuaire Mondial • Affiliation • SASC</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden xl:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#/accueil" class="nav-link hover:text-brand-400 transition-colors">Accueil</a>
+        
+        <!-- Pillar 1 -->
+        <a href="#/annuaire" class="nav-link hover:text-brand-400 transition-colors flex items-center gap-1.5">
+          <span>Annuaire Mondial</span>
+          <span class="text-[10px] bg-slate-800 text-brand-300 px-1.5 py-0.5 rounded">2 Tiers</span>
+        </a>
+
+        <!-- Pillar 2 -->
+        <a href="#/devenir-affilie" class="nav-link hover:text-brand-400 transition-colors flex items-center gap-1.5">
+          <span>Affiliation</span>
+          <span class="text-[10px] bg-brand-500/20 text-brand-300 px-1.5 py-0.5 rounded font-bold">2 Modèles</span>
+        </a>
+
+        <!-- Pillar 3 -->
+        <a href="#/scraping" class="nav-link hover:text-brand-400 transition-colors">SASC Niche Scraping</a>
+        
+        <a href="#/forfaits" class="nav-link hover:text-brand-400 transition-colors">Forfaits</a>
+        <a href="#/agent-ia" class="nav-link hover:text-brand-400 transition-colors">Agent IA</a>
+      </nav>
+
+      <!-- Right Header Actions (Auth & CTAs) -->
+      <div class="hidden sm:flex items-center gap-3">
+        <div id="authNavContainer" class="flex items-center gap-2">
+          <!-- Populated by JS based on user state -->
+          <a href="#/connexion" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
+            Connexion
+          </a>
+        </div>
+        <a href="#/devenir-affilie" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-bold text-xs tracking-wide shadow-md shadow-brand-500/20 transition-all">
+          Devenir Apporteur
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="xl:hidden p-2 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer" class="xl:hidden hidden border-t border-slate-800 bg-night-950 px-4 py-6 space-y-4">
+      <div class="flex flex-col space-y-3 text-sm font-medium">
+        <a href="#/accueil" class="mobile-nav-link text-slate-200 hover:text-brand-400">Accueil</a>
+        <a href="#/annuaire" class="mobile-nav-link text-slate-200 hover:text-brand-400">Annuaire Mondial (Sites & Services)</a>
+        <a href="#/devenir-affilie" class="mobile-nav-link text-slate-200 hover:text-brand-400 font-bold text-brand-400">Programme d'Affiliation & Leads</a>
+        <a href="#/scraping" class="mobile-nav-link text-slate-200 hover:text-brand-400">SASC : Scraping & Niches Naissantes</a>
+        <a href="#/forfaits" class="mobile-nav-link text-slate-200 hover:text-brand-400">Grille des Forfaits</a>
+        <a href="#/agent-ia" class="mobile-nav-link text-slate-200 hover:text-brand-400">Agent IA B-MONEY</a>
+        <a href="#/conditions" class="mobile-nav-link text-slate-200 hover:text-brand-400 text-xs">Conditions d'Affiliation & Règles</a>
+      </div>
+      <div id="mobileAuthContainer" class="pt-4 border-t border-slate-800 flex flex-col gap-2">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= NOTIFICATION TOAST ================= -->
+  <div id="globalToast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 max-w-md p-4 rounded-2xl bg-night-900 border border-slate-700 shadow-2xl flex items-start gap-3 pointer-events-none">
+    <div id="toastIcon" class="p-1 rounded-lg bg-brand-500/20 text-brand-400 mt-0.5">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+    </div>
+    <div class="flex-1 text-xs">
+      <p id="toastTitle" class="font-bold text-white"></p>
+      <p id="toastMessage" class="text-slate-300 mt-0.5"></p>
+    </div>
+  </div>
+
+  <!-- ================= MAIN ROUTER OUTLET ================= -->
+  <main id="app" class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 focus:outline-none" tabindex="-1">
+    <!-- Vues injectées par le Routeur JS -->
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto border-t border-slate-800 bg-night-950 text-slate-400 text-xs py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-7 h-7 rounded-lg bg-brand-500 text-night-950 font-black text-sm flex items-center justify-center font-display">B</span>
+            <span class="font-bold text-white tracking-tight text-base font-display">B-MONEY DIGITAL</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed text-xs">
+            Infrastructure globale reliant l'Annuaire sans discrimination technique, le Marché de Leads équitable par caution, et le Scraping prédictif SASC.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Les 3 Piliers</h4>
+          <ul class="space-y-2">
+            <li><a href="#/annuaire" class="hover:text-brand-400 transition-colors">Annuaire Sites & Services</a></li>
+            <li><a href="#/devenir-affilie" class="hover:text-brand-400 transition-colors">Programme d'Affiliation</a></li>
+            <li><a href="#/scraping" class="hover:text-brand-400 transition-colors">SASC Niche Scanner</a></li>
+            <li><a href="#/creer-categorie" class="hover:text-brand-400 transition-colors">Proposer une Catégorie</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Plateforme & Accès</h4>
+          <ul class="space-y-2">
+            <li><a href="#/forfaits" class="hover:text-brand-400 transition-colors">Forfaits Annuaire & SASC</a></li>
+            <li><a href="#/agent-ia" class="hover:text-brand-400 transition-colors">Agent Stratégique IA</a></li>
+            <li><a href="#/connexion" class="hover:text-brand-400 transition-colors">Espace Propriétaire & Affilié</a></li>
+            <li><a href="#/conditions" class="hover:text-brand-400 transition-colors">Règles Caution & Leads</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Sécurité & Tiers Paiement</h4>
+          <p class="text-slate-400 text-xs mb-3">
+            Tous les flux financiers et abonnements sont gérés via passerelles agréées chiffrées (Visa, Mastercard, Mobile Money, LemonSqueezy/Stripe).
+          </p>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-brand-300">
+            <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+            Passerelle externe 100% sécurisée
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <p>© 2026 B-MONEY DIGITAL SERVICES. Système propriétaire SASC. Tous droits réservés.</p>
+        <div class="flex gap-4">
+          <a href="#/conditions" class="hover:text-slate-300">Règlement et Litiges</a>
+          <a href="#/conditions" class="hover:text-slate-300">Score de Confiance Vendeur</a>
+          <a href="#/conditions" class="hover:text-slate-300">Mentions Légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS SYSTEM ================= -->
+
+  <!-- 1. EXTERNAL PAYMENT MODAL (NO CREDIT CARD INPUTS ON SITE!) -->
+  <div id="paymentGatewayModal" class="fixed inset-0 z-50 bg-night-950/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-md bg-night-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal('paymentGatewayModal')" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+      
+      <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+      </div>
+
+      <h3 class="text-xl font-black text-white font-display mb-1">Règlement Sécurisé Hors-Site</h3>
+      <p class="text-xs text-slate-400 mb-6">
+        B-MONEY ne conserve aucune donnée bancaire. Vous allez être redirigé vers l'infrastructure de paiement partenaire agréée (3D-Secure / Visa / CB / Mobile Money).
+      </p>
+
+      <div class="p-4 rounded-2xl bg-night-950 border border-slate-800 mb-6 text-xs space-y-2">
+        <div class="flex justify-between text-slate-300">
+          <span>Produit sélectionné :</span>
+          <strong id="modalPayPlanName" class="text-white">Plan Découverte</strong>
+        </div>
+        <div class="flex justify-between text-slate-300">
+          <span>Montant à régler :</span>
+          <strong id="modalPayPlanPrice" class="text-brand-400 text-sm font-display font-black">30 $</strong>
+        </div>
+        <div class="flex justify-between text-slate-400 text-[11px] pt-2 border-t border-slate-800">
+          <span>Partenaire monétique :</span>
+          <span class="text-slate-300">Stripe / LemonSqueezy / Paystack</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <button id="externalPayBtn" onclick="simulateExternalCheckoutRedirect()" class="w-full py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-black text-sm transition-all shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
+          <span>Rediriger vers la passerelle sécurisée</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+        <button onclick="closeModal('paymentGatewayModal')" class="w-full py-2.5 rounded-xl text-xs text-slate-400 hover:text-white transition-colors">
+          Annuler et revenir
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. LEAD ACQUISITION + OTP VERIFICATION MODAL -->
+  <div id="leadModal" class="fixed inset-0 z-50 bg-night-950/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-night-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scroll">
+      <button onclick="closeModal('leadModal')" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+
+      <div class="mb-5">
+        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">Mise en relation directe qualifiée</span>
+        <h3 class="text-2xl font-black text-white font-display mt-2" id="leadModalListingTitle">Contacter l'établissement</h3>
+        <p class="text-xs text-slate-400 mt-1">Vos coordonnées ne seront transmises qu'après vérification de votre identité.</p>
+      </div>
+
+      <!-- Step 1: Form -->
+      <form id="leadStep1Form" onsubmit="handleLeadStep1(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Votre Nom complet *</label>
+          <input id="leadName" type="text" required placeholder="Ex: Alex Martin" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500" />
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Votre Numéro de Téléphone * (avec indicatif)</label>
+          <input id="leadPhone" type="tel" required placeholder="+237 600 000 000 ou +33 6 00 00 00 00" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500 font-mono" />
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Votre Adresse Email *</label>
+          <input id="leadEmail" type="email" required placeholder="alex@exemple.com" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500" />
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Détail de votre besoin / demande</label>
+          <textarea id="leadNotes" rows="2" placeholder="Précisez votre demande ou vos disponibilités..." class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500"></textarea>
+        </div>
+
+        <div class="p-3 bg-night-950 rounded-xl border border-slate-800 space-y-2">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input id="leadConsent" type="checkbox" required class="mt-0.5 rounded border-slate-700 text-brand-500 focus:ring-brand-400" />
+            <span class="text-[11px] text-slate-300">
+              Je consens expressément à transmettre mes coordonnées vérifiées au propriétaire de cet établissement afin d'être recontacté directement.
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-bold text-sm transition-all shadow-md shadow-brand-500/20">
+          Recevoir mon code SMS de vérification
+        </button>
+      </form>
+
+      <!-- Step 2: OTP Verification (Simulated) -->
+      <div id="leadStep2Otp" class="hidden space-y-4 text-xs mt-4">
+        <div class="p-4 rounded-xl bg-night-950 border border-brand-500/40 text-center">
+          <p class="text-slate-300 text-xs">Un code SMS à 6 chiffres a été expédié au numéro renseigné.</p>
+          <p class="text-[11px] text-brand-400 mt-1 font-mono font-bold">(Code de test simulation : 789456)</p>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-center">Entrez le code OTP reçu</label>
+          <input id="leadOtpCode" type="text" maxlength="6" placeholder="789456" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white text-center font-mono text-lg tracking-widest focus:outline-none focus:border-brand-500" />
+        </div>
+
+        <button onclick="verifyLeadOtp()" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-black text-sm transition-all shadow-md shadow-brand-500/20">
+          Confirmer mon intérêt & Transmettre le Lead
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. WITHDRAWAL SIMULATION MODAL -->
+  <div id="withdrawModal" class="fixed inset-0 z-50 bg-night-950/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-md bg-night-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal('withdrawModal')" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+      
+      <h3 class="text-xl font-black text-white font-display mb-1">Demande de Retrait de Commissions</h3>
+      <p class="text-xs text-slate-400 mb-4">
+        Transférez votre solde disponible vers votre compte bancaire ou Mobile Money.
+      </p>
+
+      <form onsubmit="handleWithdrawSubmit(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Méthode de virement</label>
+          <select id="withdrawMethod" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500">
+            <option value="momo">Mobile Money (MTN, Orange, Moov, Wave)</option>
+            <option value="bank">Virement Bancaire SEPA / SWIFT</option>
+            <option value="crypto">USDT (TRC20 / Polygon)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Coordonnées de réception (Téléphone / IBAN / Adresse)</label>
+          <input id="withdrawAddress" type="text" required placeholder="Ex: +237 699 00 00 00 ou FR76..." class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500" />
+        </div>
+        <div>
+        
