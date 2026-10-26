@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>B-MONEY DIGITAL SERVICES • Annuaire Mondial, Affiliation & SASC</title>
-  <meta name="description" content="Plateforme mondiale intégrant un Annuaire d'entreprises et de services, un Programme d'Affiliation multi-gains et le Système de Scraping et Cartographie des Niches (SASC)." />
-  <link rel="canonical" href="https://b-money.digital/#/accueil" id="canonicalLink" />
-
-  <!-- Supabase JS Client v2.45.4 -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <title>B-MONEY DIGITAL SERVICES • Annuaire Mondial & SASC</title>
+  <meta name="description" content="Découvrez l'annuaire mondial d'entreprises et le Système Automatisé de Scraping et de Cartographie des Niches (SASC) pour anticiper les opportunités naissantes." />
+  <link rel="canonical" href="" id="canonicalTag" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,28 +15,16 @@
         theme: {
           extend: {
             colors: {
-              night: {
-                950: '#030712',
-                900: '#0b1329',
-                800: '#111e3f',
-                700: '#1b2d5a',
-              },
               brand: {
                 50: '#ecfdf5',
-                100: '#d1fae5',
-                200: '#a7f3d0',
-                300: '#6ee7b7',
                 400: '#34d399',
                 500: '#10b981',
                 600: '#059669',
                 700: '#047857',
                 800: '#065f46',
                 900: '#064e3b',
+                950: '#022c22',
               }
-            },
-            fontFamily: {
-              sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-              display: ['Space Grotesk', 'system-ui', 'sans-serif']
             }
           }
         }
@@ -47,357 +32,2512 @@
     }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Polices Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      background-color: #030712;
-      color: #f1f5f9;
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      margin: 0;
-    }
-    h1, h2, h3, h4, .font-display {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-    }
-    .custom-scroll::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scroll::-webkit-scrollbar-track {
-      background: #0b1329;
-    }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 9999px;
-    }
-    .custom-scroll::-webkit-scrollbar-thumb:hover {
-      background: #10b981;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+  <!-- Supabase JS CDN (Version 2.45.4 fixée) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 
-  <!-- Structured Data JSON-LD Container -->
-  <script type="application/ld+json" id="jsonLdScript">
+  <!-- Données structurées SEO dynamiques -->
+  <script type="application/ld+json" id="schema-jsonld">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "B-MONEY DIGITAL SERVICES",
-    "url": "https://b-money.digital"
+    "url": "https://b-money.com"
   }
   </script>
-</head>
-<body class="bg-night-950 text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-night-950">
 
-  <!-- ================= TOP TICKER ================= -->
-  <div class="bg-night-900/90 border-b border-slate-800/80 px-4 py-2 text-xs text-slate-300">
+  <style>
+    html, body {
+      background-color: #020617;
+      color: #f1f5f9;
+      margin: 0;
+      min-height: 100%;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid #10b981;
+      outline-offset: 2px;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 flex flex-col min-h-screen">
+
+  <!-- TOP TICKER BAR -->
+  <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-950 border-b border-emerald-900/40 px-4 py-2 text-xs text-emerald-300">
     <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
-        <span class="font-semibold text-brand-300">INFRASTRUCTURE B-MONEY ACTIVE</span>
-        <span class="text-slate-500 hidden sm:inline">|</span>
-        <span id="headerLiveCounter" class="text-slate-300 font-medium">Chargement des données mondiales...</span>
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-semibold tracking-wide">SASC LIVE SCAN (exemple) : 142 pays scannés en continu (développés & émergents)</span>
       </div>
-      <div class="flex items-center gap-3 text-[11px] text-slate-400">
-        <span class="text-slate-400">Scanner SASC : <strong class="text-brand-400">Détection continue</strong></span>
-        <span class="text-slate-600">•</span>
-        <span class="text-slate-400">Caution Sécurisée : <strong class="text-white">Escrow 30j</strong></span>
+      <div class="text-slate-400 text-xs flex items-center gap-2">
+        <span>+24 niches vierges détectées (exemple)</span> • 
+        <span class="text-emerald-400 font-bold">Marge moyenne : x9.2 (exemple)</span>
       </div>
     </div>
   </div>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="sticky top-0 z-40 bg-night-950/95 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+  <!-- NAVIGATION FIXE (BUREAU) & BURGER (MOBILE) -->
+  <header class="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#/accueil" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-xl p-1">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 flex items-center justify-center text-night-950 font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+      <!-- LOGO -->
+      <a href="#/accueil" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
           B
         </div>
         <div>
           <div class="flex items-center gap-2">
             <span class="font-black text-xl tracking-tight text-white font-display">B-MONEY</span>
-            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/30">SERVICES</span>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">SASC</span>
           </div>
-          <p class="text-[11px] text-slate-400 font-medium hidden sm:block">Annuaire Mondial • Affiliation • SASC</p>
+          <p class="text-[11px] text-slate-400 font-medium">Digital Services • Annuaire & Cartographie</p>
         </div>
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="hidden xl:flex items-center gap-6 text-sm font-medium text-slate-300">
-        <a href="#/accueil" class="nav-link hover:text-brand-400 transition-colors">Accueil</a>
-        
-        <!-- Pillar 1 -->
-        <a href="#/annuaire" class="nav-link hover:text-brand-400 transition-colors flex items-center gap-1.5">
-          <span>Annuaire Mondial</span>
-          <span class="text-[10px] bg-slate-800 text-brand-300 px-1.5 py-0.5 rounded">2 Tiers</span>
-        </a>
-
-        <!-- Pillar 2 -->
-        <a href="#/devenir-affilie" class="nav-link hover:text-brand-400 transition-colors flex items-center gap-1.5">
-          <span>Affiliation</span>
-          <span class="text-[10px] bg-brand-500/20 text-brand-300 px-1.5 py-0.5 rounded font-bold">2 Modèles</span>
-        </a>
-
-        <!-- Pillar 3 -->
-        <a href="#/scraping" class="nav-link hover:text-brand-400 transition-colors">SASC Niche Scraping</a>
-        
-        <a href="#/forfaits" class="nav-link hover:text-brand-400 transition-colors">Forfaits</a>
-        <a href="#/agent-ia" class="nav-link hover:text-brand-400 transition-colors">Agent IA</a>
+      <!-- MENU BUREAU (TOUJOURS VISIBLE) -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#/accueil" class="nav-link hover:text-emerald-400 transition-colors">Accueil</a>
+        <a href="#/annuaire" class="nav-link hover:text-emerald-400 transition-colors">Annuaire</a>
+        <a href="#/forfaits" class="nav-link hover:text-emerald-400 transition-colors">Forfaits</a>
+        <a href="#/affiliation" class="nav-link hover:text-emerald-400 transition-colors">Affiliation</a>
+        <a href="#/creer-categorie" class="nav-link hover:text-emerald-400 transition-colors">Créer catégorie</a>
+        <a href="#/agent-ia" class="nav-link hover:text-emerald-400 transition-colors">Agent IA</a>
       </nav>
 
-      <!-- Right Header Actions (Auth & CTAs) -->
-      <div class="hidden sm:flex items-center gap-3">
-        <div id="authNavContainer" class="flex items-center gap-2">
-          <!-- Populated by JS based on user state -->
-          <a href="#/connexion" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
-            Connexion
-          </a>
-        </div>
-        <a href="#/devenir-affilie" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-bold text-xs tracking-wide shadow-md shadow-brand-500/20 transition-all">
-          Devenir Apporteur
-        </a>
+      <!-- AUTH DESKTOP -->
+      <div class="hidden lg:flex items-center gap-3" id="authNavDesktop">
+        <a href="#/connexion" class="px-4 py-2 rounded-xl text-slate-300 hover:text-white font-semibold text-xs border border-slate-700 hover:border-slate-600 transition-all">Connexion</a>
+        <a href="#/inscription" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition-all">Rejoindre</a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="xl:hidden p-2 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400 rounded-lg">
+      <!-- BOUTON BURGER MOBILE -->
+      <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="burgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
 
     </div>
 
-    <!-- Mobile Drawer Menu -->
-    <div id="mobileDrawer" class="xl:hidden hidden border-t border-slate-800 bg-night-950 px-4 py-6 space-y-4">
-      <div class="flex flex-col space-y-3 text-sm font-medium">
-        <a href="#/accueil" class="mobile-nav-link text-slate-200 hover:text-brand-400">Accueil</a>
-        <a href="#/annuaire" class="mobile-nav-link text-slate-200 hover:text-brand-400">Annuaire Mondial (Sites & Services)</a>
-        <a href="#/devenir-affilie" class="mobile-nav-link text-slate-200 hover:text-brand-400 font-bold text-brand-400">Programme d'Affiliation & Leads</a>
-        <a href="#/scraping" class="mobile-nav-link text-slate-200 hover:text-brand-400">SASC : Scraping & Niches Naissantes</a>
-        <a href="#/forfaits" class="mobile-nav-link text-slate-200 hover:text-brand-400">Grille des Forfaits</a>
-        <a href="#/agent-ia" class="mobile-nav-link text-slate-200 hover:text-brand-400">Agent IA B-MONEY</a>
-        <a href="#/conditions" class="mobile-nav-link text-slate-200 hover:text-brand-400 text-xs">Conditions d'Affiliation & Règles</a>
-      </div>
-      <div id="mobileAuthContainer" class="pt-4 border-t border-slate-800 flex flex-col gap-2">
-        <!-- Injected via JS -->
+    <!-- TIROIR MOBILE -->
+    <div id="mobileDrawer" class="hidden lg:hidden border-b border-slate-800 bg-slate-950 px-6 py-6 space-y-4">
+      <nav class="flex flex-col space-y-3 text-base font-medium text-slate-300">
+        <a href="#/accueil" class="mobile-nav-link py-1 hover:text-emerald-400">Accueil</a>
+        <a href="#/annuaire" class="mobile-nav-link py-1 hover:text-emerald-400">Annuaire</a>
+        <a href="#/forfaits" class="mobile-nav-link py-1 hover:text-emerald-400">Nos Forfaits</a>
+        <a href="#/affiliation" class="mobile-nav-link py-1 hover:text-emerald-400">Affiliation & Leads</a>
+        <a href="#/creer-categorie" class="mobile-nav-link py-1 hover:text-emerald-400">+ Créer une catégorie</a>
+        <a href="#/agent-ia" class="mobile-nav-link py-1 hover:text-emerald-400">Agent IA B-MONEY</a>
+      </nav>
+      <div class="pt-4 border-t border-slate-800 flex flex-col gap-2" id="authNavMobile">
+        <a href="#/connexion" class="w-full text-center py-2.5 rounded-xl border border-slate-700 text-slate-200 font-semibold text-sm">Connexion</a>
+        <a href="#/inscription" class="w-full text-center py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-sm">Inscription gratuite</a>
       </div>
     </div>
   </header>
 
-  <!-- ================= NOTIFICATION TOAST ================= -->
-  <div id="globalToast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 max-w-md p-4 rounded-2xl bg-night-900 border border-slate-700 shadow-2xl flex items-start gap-3 pointer-events-none">
-    <div id="toastIcon" class="p-1 rounded-lg bg-brand-500/20 text-brand-400 mt-0.5">
-      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-    </div>
-    <div class="flex-1 text-xs">
-      <p id="toastTitle" class="font-bold text-white"></p>
-      <p id="toastMessage" class="text-slate-300 mt-0.5"></p>
-    </div>
-  </div>
+  <!-- CONTENEUR DU ROUTEUR DYNAMIQUE -->
+  <main id="app" class="flex-1 w-full relative"></main>
 
-  <!-- ================= MAIN ROUTER OUTLET ================= -->
-  <main id="app" class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 focus:outline-none" tabindex="-1">
-    <!-- Vues injectées par le Routeur JS -->
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="mt-auto border-t border-slate-800 bg-night-950 text-slate-400 text-xs py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="w-7 h-7 rounded-lg bg-brand-500 text-night-950 font-black text-sm flex items-center justify-center font-display">B</span>
-            <span class="font-bold text-white tracking-tight text-base font-display">B-MONEY DIGITAL</span>
-          </div>
-          <p class="text-slate-400 leading-relaxed text-xs">
-            Infrastructure globale reliant l'Annuaire sans discrimination technique, le Marché de Leads équitable par caution, et le Scraping prédictif SASC.
-          </p>
+  <!-- PIED DE PAGE -->
+  <footer class="border-t border-slate-900 bg-slate-950 text-slate-400 text-xs py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center text-slate-950 font-black text-sm">B</div>
+          <span class="font-bold text-white font-display text-base">B-MONEY DIGITAL</span>
         </div>
-
-        <div>
-          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Les 3 Piliers</h4>
-          <ul class="space-y-2">
-            <li><a href="#/annuaire" class="hover:text-brand-400 transition-colors">Annuaire Sites & Services</a></li>
-            <li><a href="#/devenir-affilie" class="hover:text-brand-400 transition-colors">Programme d'Affiliation</a></li>
-            <li><a href="#/scraping" class="hover:text-brand-400 transition-colors">SASC Niche Scanner</a></li>
-            <li><a href="#/creer-categorie" class="hover:text-brand-400 transition-colors">Proposer une Catégorie</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Plateforme & Accès</h4>
-          <ul class="space-y-2">
-            <li><a href="#/forfaits" class="hover:text-brand-400 transition-colors">Forfaits Annuaire & SASC</a></li>
-            <li><a href="#/agent-ia" class="hover:text-brand-400 transition-colors">Agent Stratégique IA</a></li>
-            <li><a href="#/connexion" class="hover:text-brand-400 transition-colors">Espace Propriétaire & Affilié</a></li>
-            <li><a href="#/conditions" class="hover:text-brand-400 transition-colors">Règles Caution & Leads</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Sécurité & Tiers Paiement</h4>
-          <p class="text-slate-400 text-xs mb-3">
-            Tous les flux financiers et abonnements sont gérés via passerelles agréées chiffrées (Visa, Mastercard, Mobile Money, LemonSqueezy/Stripe).
-          </p>
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-brand-300">
-            <span class="w-2 h-2 rounded-full bg-brand-400"></span>
-            Passerelle externe 100% sécurisée
-          </div>
-        </div>
-
+        <p class="text-slate-400 leading-relaxed">
+          Système Automatisé de Scraping et de Cartographie (SASC) & Annuaire Mondial des Vrais Services. Données réelles, opportunités sans saturation.
+        </p>
       </div>
 
-      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-        <p>© 2026 B-MONEY DIGITAL SERVICES. Système propriétaire SASC. Tous droits réservés.</p>
-        <div class="flex gap-4">
-          <a href="#/conditions" class="hover:text-slate-300">Règlement et Litiges</a>
-          <a href="#/conditions" class="hover:text-slate-300">Score de Confiance Vendeur</a>
-          <a href="#/conditions" class="hover:text-slate-300">Mentions Légales</a>
-        </div>
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider mb-3">Navigation</h4>
+        <ul class="space-y-2">
+          <li><a href="#/annuaire" class="hover:text-emerald-400">Annuaire d'entreprises</a></li>
+          <li><a href="#/forfaits" class="hover:text-emerald-400">Forfaits Annuaire & SASC</a></li>
+          <li><a href="#/affiliation" class="hover:text-emerald-400">Marché de leads & Affiliation</a></li>
+          <li><a href="#/creer-categorie" class="hover:text-emerald-400">Suggérer une catégorie</a></li>
+        </ul>
       </div>
+
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider mb-3">Espaces Membres</h4>
+        <ul class="space-y-2">
+          <li><a href="#/mon-espace" class="hover:text-emerald-400">Mon Espace Entreprise</a></li>
+          <li><a href="#/apporteur" class="hover:text-emerald-400">Espace Apporteur d'Affaires</a></li>
+          <li><a href="#/scraping" class="hover:text-emerald-400">Laboratoire SASC Live</a></li>
+          <li><a href="#/agent-ia" class="hover:text-emerald-400">Agent Stratégique IA</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider mb-3">Légal & Confidentialité</h4>
+        <ul class="space-y-2">
+          <li><a href="#/conditions" class="hover:text-emerald-400">Conditions Générales d'Usage</a></li>
+          <li><a href="#/confidentialite" class="hover:text-emerald-400">Politique de Confidentialité</a></li>
+          <li>
+            <button onclick="openCookieSettings()" class="hover:text-emerald-400 text-left underline decoration-dotted">
+              Gérer mes cookies
+            </button>
+          </li>
+          <li class="pt-2 text-[11px] text-slate-500">
+            © 2026 B-MONEY DIGITAL SERVICES. Tous droits réservés.
+          </li>
+        </ul>
+      </div>
+
     </div>
   </footer>
 
-  <!-- ================= MODALS SYSTEM ================= -->
-
-  <!-- 1. EXTERNAL PAYMENT MODAL (NO CREDIT CARD INPUTS ON SITE!) -->
-  <div id="paymentGatewayModal" class="fixed inset-0 z-50 bg-night-950/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-md bg-night-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative shadow-2xl">
-      <button onclick="closeModal('paymentGatewayModal')" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
-      
-      <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center mb-4">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+  <!-- MODALE : PAIEMENT SÉCURISÉ EXTERNE -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-md bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeCheckoutModal()" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+      <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
       </div>
+      <h3 class="text-xl font-black text-white font-display mb-1" id="checkoutTitle">Paiement Sécurisé Externe</h3>
+      <p class="text-xs text-slate-400 mb-6" id="checkoutSubtitle">Redirection vers notre prestataire agréé Stripe / LemonSqueezy / Payplug.</p>
 
-      <h3 class="text-xl font-black text-white font-display mb-1">Règlement Sécurisé Hors-Site</h3>
-      <p class="text-xs text-slate-400 mb-6">
-        B-MONEY ne conserve aucune donnée bancaire. Vous allez être redirigé vers l'infrastructure de paiement partenaire agréée (3D-Secure / Visa / CB / Mobile Money).
-      </p>
-
-      <div class="p-4 rounded-2xl bg-night-950 border border-slate-800 mb-6 text-xs space-y-2">
-        <div class="flex justify-between text-slate-300">
-          <span>Produit sélectionné :</span>
-          <strong id="modalPayPlanName" class="text-white">Plan Découverte</strong>
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 mb-6 space-y-2">
+        <div class="flex justify-between text-xs text-slate-300">
+          <span>Formule sélectionnée :</span>
+          <span class="font-bold text-white" id="checkoutProductName">Forfait SASC Stratégie</span>
         </div>
-        <div class="flex justify-between text-slate-300">
+        <div class="flex justify-between text-xs text-slate-300">
           <span>Montant à régler :</span>
-          <strong id="modalPayPlanPrice" class="text-brand-400 text-sm font-display font-black">30 $</strong>
+          <span class="font-extrabold text-emerald-400 text-sm" id="checkoutProductPrice">80 $ USD</span>
         </div>
-        <div class="flex justify-between text-slate-400 text-[11px] pt-2 border-t border-slate-800">
-          <span>Partenaire monétique :</span>
-          <span class="text-slate-300">Stripe / LemonSqueezy / Paystack</span>
+        <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-900">
+          Conformité bancaire intégrale : aucun champ de carte bancaire n'est hébergé sur notre site. Le paiement s'effectue dans un environnement chiffré SSL 256 bits.
         </div>
       </div>
 
       <div class="space-y-3">
-        <button id="externalPayBtn" onclick="simulateExternalCheckoutRedirect()" class="w-full py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-black text-sm transition-all shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
-          <span>Rediriger vers la passerelle sécurisée</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        <button id="checkoutPayBtn" onclick="simulatePaymentSuccess()" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm tracking-wide transition-all shadow-lg shadow-emerald-500/25">
+          Procéder au règlement sécurisé →
         </button>
-        <button onclick="closeModal('paymentGatewayModal')" class="w-full py-2.5 rounded-xl text-xs text-slate-400 hover:text-white transition-colors">
-          Annuler et revenir
+        <button onclick="closeCheckoutModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold">
+          Annuler
         </button>
       </div>
     </div>
   </div>
 
-  <!-- 2. LEAD ACQUISITION + OTP VERIFICATION MODAL -->
-  <div id="leadModal" class="fixed inset-0 z-50 bg-night-950/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-lg bg-night-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scroll">
-      <button onclick="closeModal('leadModal')" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+  <!-- MODALE : DÉPÔT DE CAUTION (MODIFIÉE EN USD UNIQUEMENT) -->
+  <div id="cautionModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative">
+      <button onclick="closeCautionModal()" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+      <h3 class="text-xl font-black text-white font-display mb-1">Dépôt de Caution d'Affiliation</h3>
+      <p class="text-xs text-slate-400 mb-5">Activez l'apport d'affaires pour votre fiche en alimentant votre réserve séquestrée.</p>
 
-      <div class="mb-5">
-        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">Mise en relation directe qualifiée</span>
-        <h3 class="text-2xl font-black text-white font-display mt-2" id="leadModalListingTitle">Contacter l'établissement</h3>
-        <p class="text-xs text-slate-400 mt-1">Vos coordonnées ne seront transmises qu'après vérification de votre identité.</p>
+      <div class="p-4 rounded-2xl bg-amber-950/20 border border-amber-800/40 text-xs text-amber-200 mb-5">
+        <strong>Règle de sécurité :</strong> La caution minimale est égale à la commission d'un client apporté, en dollars américains (USD).
       </div>
 
-      <!-- Step 1: Form -->
-      <form id="leadStep1Form" onsubmit="handleLeadStep1(event)" class="space-y-4 text-xs">
+      <div class="space-y-4 text-xs">
         <div>
-          <label class="block text-slate-300 font-semibold mb-1">Votre Nom complet *</label>
-          <input id="leadName" type="text" required placeholder="Ex: Alex Martin" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500" />
+          <label class="block text-slate-300 font-semibold mb-1">Commission versée pour un client apporté (USD)</label>
+          <input type="number" id="cautionCommissionInput" value="" min="0" step="any" placeholder="Ex: 50" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
         </div>
         <div>
-          <label class="block text-slate-300 font-semibold mb-1">Votre Numéro de Téléphone * (avec indicatif)</label>
-          <input id="leadPhone" type="tel" required placeholder="+237 600 000 000 ou +33 6 00 00 00 00" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500 font-mono" />
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">Votre Adresse Email *</label>
-          <input id="leadEmail" type="email" required placeholder="alex@exemple.com" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500" />
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">Détail de votre besoin / demande</label>
-          <textarea id="leadNotes" rows="2" placeholder="Précisez votre demande ou vos disponibilités..." class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500"></textarea>
+          <label class="block text-slate-300 font-semibold mb-1">Montant initial de la caution à bloquer (USD)</label>
+          <input type="number" id="cautionDepositInput" value="" min="0" step="any" placeholder="Ex: 100" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white font-mono" />
+          <p class="text-[11px] text-slate-400 mt-1">Minimum : la commission d'un client apporté (USD).</p>
         </div>
 
-        <div class="p-3 bg-night-950 rounded-xl border border-slate-800 space-y-2">
+        <button onclick="confirmCautionDeposit()" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm tracking-wide mt-2 shadow-lg shadow-emerald-500/20">
+          Valider le dépôt (Séquestre Garanti)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALE : PRISE DE LEAD PAR APPORTEUR -->
+  <div id="leadModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative">
+      <button onclick="closeLeadModal()" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
+      <h3 class="text-xl font-black text-white font-display mb-1">Transmettre un Prospect Qualifié (Lead)</h3>
+      <p class="text-xs text-slate-400 mb-4" id="leadModalSubtitle">Établissement sélectionné</p>
+
+      <div id="leadStep1" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Nom complet du prospect</label>
+          <input type="text" id="leadClientName" placeholder="Ex: Paul Martin" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white" />
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Téléphone mobile (avec indicatif)</label>
+          <input type="tel" id="leadClientPhone" placeholder="+237 690 00 00 00 ou +33 6 12 34 56 78" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white" />
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Adresse Email</label>
+          <input type="email" id="leadClientEmail" placeholder="client@exemple.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white" />
+        </div>
+        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
           <label class="flex items-start gap-2 cursor-pointer">
-            <input id="leadConsent" type="checkbox" required class="mt-0.5 rounded border-slate-700 text-brand-500 focus:ring-brand-400" />
+            <input type="checkbox" id="leadConsentCheck" class="mt-1 rounded bg-slate-900 border-slate-700 text-emerald-500 focus:ring-0" />
             <span class="text-[11px] text-slate-300">
-              Je consens expressément à transmettre mes coordonnées vérifiées au propriétaire de cet établissement afin d'être recontacté directement.
+              Le client a explicitement consenti au partage de ses coordonnées avec cet établissement et confirme son intérêt pour la prestation.
             </span>
           </label>
         </div>
 
-        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-bold text-sm transition-all shadow-md shadow-brand-500/20">
-          Recevoir mon code SMS de vérification
-        </button>
-      </form>
-
-      <!-- Step 2: OTP Verification (Simulated) -->
-      <div id="leadStep2Otp" class="hidden space-y-4 text-xs mt-4">
-        <div class="p-4 rounded-xl bg-night-950 border border-brand-500/40 text-center">
-          <p class="text-slate-300 text-xs">Un code SMS à 6 chiffres a été expédié au numéro renseigné.</p>
-          <p class="text-[11px] text-brand-400 mt-1 font-mono font-bold">(Code de test simulation : 789456)</p>
-        </div>
-
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-center">Entrez le code OTP reçu</label>
-          <input id="leadOtpCode" type="text" maxlength="6" placeholder="789456" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white text-center font-mono text-lg tracking-widest focus:outline-none focus:border-brand-500" />
-        </div>
-
-        <button onclick="verifyLeadOtp()" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-night-950 font-black text-sm transition-all shadow-md shadow-brand-500/20">
-          Confirmer mon intérêt & Transmettre le Lead
+        <button onclick="simulateSendLeadOTP()" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs mt-2">
+          Envoyer le code OTP de vérification SMS
         </button>
       </div>
 
+      <div id="leadStep2" class="space-y-4 text-xs hidden">
+        <p class="text-slate-300">Un SMS avec un code à 4 chiffres a été transmis (Simulation de test : saisissez le code <strong class="text-emerald-400 font-mono">1234</strong>).</p>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Code de confirmation OTP</label>
+          <input type="text" id="leadOtpCode" placeholder="1234" maxlength="4" class="w-full text-center tracking-widest text-lg font-mono bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+        </div>
+        <button onclick="confirmLeadSubmission()" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs">
+          Valider et Bloquer la Commission en Séquestre
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- 3. WITHDRAWAL SIMULATION MODAL -->
-  <div id="withdrawModal" class="fixed inset-0 z-50 bg-night-950/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-md bg-night-900 border border-slate-700 rounded-3xl p-6 sm:p-8 relative shadow-2xl">
-      <button onclick="closeModal('withdrawModal')" class="absolute right-5 top-5 text-slate-400 hover:text-white text-xl">✕</button>
-      
-      <h3 class="text-xl font-black text-white font-display mb-1">Demande de Retrait de Commissions</h3>
-      <p class="text-xs text-slate-400 mb-4">
-        Transférez votre solde disponible vers votre compte bancaire ou Mobile Money.
-      </p>
+  <!-- BANDEAU COOKIES INTELLIGENT GÉOCIBLÉ (FREEIPAPI - ILLIMITÉ SANS COMPTE) -->
+  <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 bg-slate-900/95 border border-emerald-500/40 rounded-3xl p-6 shadow-2xl backdrop-blur-md hidden transition-all">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-white font-display">Vos cookies, en toute transparence</h4>
+        <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+          Chez B-MONEY DIGITAL SERVICES, nous utilisons de petits fichiers appelés cookies. Ils nous servent uniquement à savoir combien de personnes visitent notre site, quelles pages sont les plus vues, et combien de temps vous restez pour nous améliorer. Pas de publicité cachée. Vous pouvez accepter ou refuser à tout moment.
+        </p>
+        <div class="mt-4 flex items-center gap-3">
+          <button onclick="acceptCookies()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shadow-md shadow-emerald-500/20">
+            J'accepte - Aidez-nous à nous améliorer
+          </button>
+          <button onclick="refuseCookies()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition-colors">
+            Je refuse
+          </button>
+        </div>
+        <div class="mt-2">
+          <a href="#/confidentialite" class="text-[11px] text-slate-400 hover:text-emerald-400 underline">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <form onsubmit="handleWithdrawSubmit(event)" class="space-y-4 text-xs">
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">Méthode de virement</label>
-          <select id="withdrawMethod" class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500">
-            <option value="momo">Mobile Money (MTN, Orange, Moov, Wave)</option>
-            <option value="bank">Virement Bancaire SEPA / SWIFT</option>
-            <option value="crypto">USDT (TRC20 / Polygon)</option>
-          </select>
+  <!-- LOGIQUE APPLICATIVE COMPLETE -->
+  <script>
+    /* ==========================================================================
+       1. TEXTES OFFICIELS CENTRALISÉS
+       ========================================================================== */
+    const TEXTS = {
+      brand: {
+        name: "B-MONEY DIGITAL SERVICES",
+        slogan: "Digital Services • Scraping & Cartographie des Niches",
+        badge: "SASC PROPRIÉTAIRE",
+        heroTitle: "Arrivez sur le marché avant la saturation. Pas quand la fête est finie.",
+        heroDesc: "Le problème de 99% des entrepreneurs et salariés : découvrir une opportunité en or quand la concurrence a déjà laminé les marges. B-MONEY scanne le monde en temps réel pour flairer les opportunités naissantes.",
+        heroQuote: "« On vous donne une longueur d'avance avec des données, pas avec des opinions. »"
+      },
+      bloc1: {
+        tag: "BLOC 1",
+        title: "1. Pourquoi B-MONEY existe ?",
+        p1: "Avez-vous déjà été confronté à cette situation ? Vous découvrez une opportunité en or, vous désirez vous lancer, mais il est trop tard. Le marché est déjà saturé par la concurrence et les marges alléchantes auxquelles miroitait ce marché s'effritent au fur et à mesure que la concurrence s'accroît. Cela plombe votre moral et votre enthousiasme.",
+        quote: "« Avoir cette impression de venir quand la fête est finie, c'est le problème de 99% des entrepreneurs et par la même occasion de tous ceux qui aspirent à une liberté financière même étant salariés. »",
+        conclusion: "B-MONEY est né pour régler ce problème."
+      },
+      bloc2: {
+        tag: "BLOC 2",
+        title: "2. Notre Solution : Un SASC",
+        subtitle: "Système Automatisé de Scraping et de Cartographie des Niches",
+        step1Title: "Scan Mondial en Temps Réel",
+        step1Desc: "Surveillance simultanée des pays développés et marchés émergents pour détecter les signaux faibles d'opportunités naissantes.",
+        step2Title: "Filtre de Douleur Réelle",
+        step2Desc: "Mesure mathématique du volume exact de recherche et de l'accélération de la demande (+22% vs chute) pour éliminer les fausses idées.",
+        step3Title: "Cartographie des Marges x10",
+        step3Desc: "Isolement des zones vierges sans acteurs établis pour permettre aux membres d'encaisser des marges démultipliées."
+      },
+      agentIA: {
+        tag: "IA STRATÉGIQUE",
+        title: "L'Agent IA B-MONEY & Rapports en Direct",
+        subtitle: "Transmettez vos rapports hebdomadaires ou posez votre question stratégique."
+      },
+      cookies: {
+        title: "Vos cookies, en toute transparence",
+        body: "Chez B-MONEY DIGITAL SERVICES, nous utilisons de petits fichiers appelés cookies. Ils nous servent uniquement à savoir combien de personnes visitent notre site, quelles pages sont les plus vues, et combien de temps vous restez pour nous améliorer. Pas de publicité cachée. Vous pouvez accepter ou refuser à tout moment.",
+        acceptBtn: "J'accepte - Aidez-nous à nous améliorer",
+        refuseBtn: "Je refuse"
+      }
+    };
+
+    /* ==========================================================================
+       2. CONFIGURATION SUPABASE & CONSTANTES
+       ========================================================================== */
+    const SB_URL = "https://hfmwqupalycjxfencidc.supabase.co";
+    const SB_KEY = "sb_publishable_VUoRBEaE5PxrcPvHdCrqFg_dyhATXm7";
+
+    
+    let supabaseClient = null;
+    try {
+      if (window.supabase && typeof window.supabase.createClient === 'function') {
+        supabaseClient = window.supabase.createClient(SB_URL, SB_KEY);
+      }
+    } catch (e) {
+      console.warn("Supabase initialisé en mode local :", e.message);
+    }
+
+    /* ==========================================================================
+       3. LISTE DES 70 CATÉGORIES DE BASE
+       ========================================================================== */
+    const BASE_CATEGORIES = [
+      "Photographie & Vidéo", "Développement & Cloud", "Beauté & Coiffure", "Transport & Logistique",
+      "Artisanat & Menuiserie", "Santé & Médecine", "Comptabilité & Fiscalité", "Droit & Avocats",
+      "Marketing Digital", "Immobilier & Architecture", "Restauration & Traiteurs", "Éducation & Soutien",
+      "Sécurité & Gardiennage", "Électroménager & Dépannage", "Plomberie & Climatisation", "BTP & Maçonnerie",
+      "Mécanique Automobile", "Graphisme & Branding", "Traduction & Rédaction", "Coaching & Développement",
+      "Événementiel & Décoration", "Nettoyage & Propreté", "Agriculture & Élevage", "Énergie Solaire & Élec",
+      "Mode & Stylisme", "Bijouterie & Joaillerie", "Assurance & Mutuelle", "Pâtisserie & Boulangerie",
+      "Location Véhicules", "Vétérinaire & Animaux", "Imprimerie & Packaging", "Sports & Fitness",
+      "Hôtellerie & Hébergement", "Formation Professionnelle", "Téléphonie & Réparation", "Fret Aérien & Express",
+      "Commerce Général", "Décoration d'Intérieur", "Psychologie & Bien-être", "Conseil en Stratégie",
+      "Optique & Lunetterie", "Dentistes & Soins", "Lavage & Pressing", "Jardinage & Paysagisme",
+      "Événements Corporatifs", "Animation & Sonorisation", "Call Center & Télésecrétariat", "Informatique & Réseaux",
+      "Serrurerie & Dépannage", "Courtage en Crédit", "Recrutement & RH", "Audiovisuel & Drone",
+      "Traçabilité & RFID", "E-commerce & Drop", "Forge & Métallerie", "Piscines & Spas",
+      "Pharmacie & Laboratoire", "Pompes Funèbres", "Équipements Médicaux", "Génie Civil",
+      "Pressing Écologique", "Dératisation & Hygiène", "Carrosserie & Peinture", "Dépannage Informatique",
+      "Sondage & Forage", "Menuiserie Aluminium", "Ameublement Bureau", "Stylisme Ongulaire",
+      "Couture Traditionnelle", "Transport Frigorifique"
+    ];
+
+    /* ==========================================================================
+       4. DONNÉES LOCALES (TOUT EN USD)
+       ========================================================================== */
+    let dbListings = [
+      {
+        id: "lst-01",
+        name: "Studio Krystal Photographie",
+        slug: "studio-krystal-photographie",
+        address: "Akwa, Rue des Palmiers",
+        website: "",
+        category: "Photographie & Vidéo",
+        city: "Douala",
+        country: "Cameroun",
+        scale: "Locale",
+        tier: "service",
+        plan_code: "gold",
+        listing_status: "active",
+        is_claimed: true,
+        verified: true,
+        affiliate_active: true,
+        affiliate_currency: "USD",
+        commission_per_lead_minor: 5000, // 50.00 USD
+        caution_balance_minor: 25000,    // 250.00 USD
+        seo_title: "Studio Krystal Photographie à Douala • Mariages & Portraits Professionnels",
+        seo_description: "Réservez le studio photo de référence à Akwa Douala. Couverture de mariages, shootings corporate et clips premium.",
+        description: "Studio professionnel d'arts visuels à Douala Akwa. Prises de vue haute définition, retouche studio et création d'albums de prestige.",
+        keywords: "photographe douala, shooting mariage akwa, video cameroun",
+        whatsapp: "+237699112233",
+        created_at: "2026-01-10T10:00:00Z"
+      },
+      {
+        id: "lst-02",
+        name: "Nexus Cloud DevOps Systems",
+        slug: "nexus-cloud-devops-systems",
+        address: "Avenue Louise 140",
+        website: "https://nexus-cloud-example.com",
+        category: "Développement & Cloud",
+        city: "Bruxelles",
+        country: "Belgique",
+        scale: "Monde",
+        tier: "website",
+        plan_code: "premium",
+        listing_status: "active",
+        is_claimed: true,
+        verified: true,
+        affiliate_active: true,
+        affiliate_currency: "USD",
+        commission_per_lead_minor: 7500, // 75.00 USD
+        caution_balance_minor: 30000,    // 300.00 USD
+        seo_title: "Nexus Cloud DevOps Bruxelles • Infrastructure Kubernetes & Cloud Scaling",
+        seo_description: "Partenaire DevSecOps et architecture cloud Kubernetes pour entreprises européennes et internationales.",
+        description: "Experts en conteneurisation, sécurité cloud et pipelines CI/CD haute disponibilité.",
+        keywords: "devops bruxelles, kubernetes belgique, cloud architect",
+        created_at: "2026-02-15T12:00:00Z"
+      },
+      {
+        id: "lst-03",
+        name: "Salon Ébène Coiffure & Soins",
+        slug: "salon-ebene-coiffure",
+        address: "Quartier Bastos, face Ambassade",
+        website: "",
+        category: "Beauté & Coiffure",
+        city: "Yaoundé",
+        country: "Cameroun",
+        scale: "Locale",
+        tier: "service",
+        plan_code: "free",
+        listing_status: "unclaimed",
+        is_claimed: false,
+        verified: false,
+        affiliate_active: false,
+        affiliate_currency: "USD",
+        commission_per_lead_minor: 2000, // 20.00 USD
+        caution_balance_minor: 0,
+        seo_title: "Salon Ébène Coiffure Yaoundé Bastos • Tresses et Soins Capillaires",
+        seo_description: "Soins des cheveux afro et tresses à Yaoundé Bastos. Fiche publique en attente de réclamation.",
+        description: "Coiffure afro contemporaine, soins capillaires naturels et tresses traditionnelles et modernes.",
+        keywords: "coiffure yaounde, salon bastos, tresses cameroun",
+        whatsapp: "+237677445566",
+        created_at: "2026-02-20T08:00:00Z"
+      },
+      {
+        id: "lst-04",
+        name: "Trans-Sahara Logistics Hub",
+        slug: "trans-sahara-logistics",
+        address: "Zone Portuaire",
+        website: "https://trans-sahara-logistics.test",
+        category: "Transport & Logistique",
+        city: "Abidjan",
+        country: "Côte d'Ivoire",
+        scale: "Continent",
+        tier: "website",
+        plan_code: "standard",
+        listing_status: "active",
+        is_claimed: true,
+        verified: true,
+        affiliate_active: true,
+        affiliate_currency: "USD",
+        commission_per_lead_minor: 3500, // 35.00 USD
+        caution_balance_minor: 15000,    // 150.00 USD
+        seo_title: "Trans-Sahara Logistics Abidjan • Fret Maritime & Routier Afrique de l'Ouest",
+        seo_description: "Courtage en fret, transit douanier et transport routier sécurisé en Côte d'Ivoire et Afrique de l'Ouest.",
+        description: "Services intégrés de transit international, logistique de vrac et solutions d'entreposage frigorifique.",
+        keywords: "logistique abidjan, fret cote d'ivoire, transit port",
+        created_at: "2026-03-01T14:30:00Z"
+      },
+      {
+        id: "lst-05",
+        name: "Atelier Menuiserie d'Art Moderne",
+        slug: "atelier-menuiserie-moderne",
+        address: "Zone Industrielle de Bassa",
+        website: "",
+        category: "Artisanat & Menuiserie",
+        city: "Douala",
+        country: "Cameroun",
+        scale: "Pays",
+        tier: "service",
+        plan_code: "free",
+        listing_status: "caution_required",
+        is_claimed: true,
+        verified: true,
+        affiliate_active: false,
+        affiliate_currency: "USD",
+        commission_per_lead_minor: 2500, // 25.00 USD
+        caution_balance_minor: 0,
+        seo_title: "Atelier Menuiserie Moderne Douala • Mobilier Bois Massif sur mesure",
+        seo_description: "Création et fabrication de meubles en bois massif noble et ameublement sur mesure à Douala Bassa.",
+        description: "Spécialiste du bois dur camerounais (Bubinga, Iroko, Moabi) pour cuisines, portes blindées et mobilier de prestige.",
+        keywords: "menuisier douala, meuble bois cameroun, artisanat bassa",
+        created_at: "2026-03-02T11:00:00Z"
+      }
+    ];
+
+    let userAffiliateData = {
+      pendingBalance: 125,
+      availableBalance: 85,
+      currency: "USD",
+      leads: [
+        {
+          id: "LD-991",
+          listingName: "Studio Krystal Photographie",
+          clientName: "Samuel E.",
+          phone: "+237 690 ••• •• 45",
+          date: "2026-03-20",
+          daysLeft: 19,
+          amountGross: 50,
+          feePercent: 8,
+          amountNet: 46,
+          status: "PENDING"
+        },
+        {
+          id: "LD-982",
+          listingName: "Nexus Cloud DevOps Systems",
+          clientName: "Marc V.",
+          phone: "+32 470 ••• •• 12",
+          date: "2026-02-10",
+          daysLeft: 0,
+          amountGross: 75,
+          feePercent: 5,
+          amountNet: 71.25,
+          status: "AVAILABLE"
+        }
+      ]
+    };
+
+    let currentUser = null;
+
+    /* ==========================================================================
+       5. BANDEAU COOKIES AVEC FREEIPAPI (GRATUIT, ILLIMITÉ, SANS QUOTA)
+       ========================================================================== */
+    const EU_COUNTRY_CODES = [
+      'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT',
+      'LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB','CH','NO','IS','LI','CA'
+    ];
+
+    async function initSmartCookieConsent() {
+      const savedChoice = localStorage.getItem('bmoney_cookie_choice');
+      if (savedChoice) {
+        if (savedChoice === 'accepted' || savedChoice === 'accepted_outside_eu') {
+          activateAnalytics();
+        }
+        return;
+      }
+
+      try {
+        const response = await fetch('https://freeipapi.com/api/json');
+        if (!response.ok) throw new Error("Erreur FreeIpApi");
+        const data = await response.json();
+        const userCountry = (data.countryCode || '').toUpperCase();
+
+        if (userCountry && !EU_COUNTRY_CODES.includes(userCountry)) {
+          localStorage.setItem('bmoney_cookie_choice', 'accepted_outside_eu');
+          activateAnalytics();
+          console.log(`Pays détecté : ${userCountry} (Hors UE). Cookies analytiques autorisés.`);
+        } else {
+          showCookieBanner();
+        }
+      } catch (err) {
+        console.warn("Échec FreeIpApi, affichage du bandeau de précaution :", err.message);
+        showCookieBanner();
+      }
+    }
+
+    function showCookieBanner() {
+      const banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.remove('hidden');
+    }
+
+    function hideCookieBanner() {
+      const banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('bmoney_cookie_choice', 'accepted');
+      hideCookieBanner();
+      activateAnalytics();
+    }
+
+    function refuseCookies() {
+      localStorage.setItem('bmoney_cookie_choice', 'refused');
+      hideCookieBanner();
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'default', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied'
+        });
+      }
+    }
+
+    function openCookieSettings() {
+      showCookieBanner();
+    }
+
+    function activateAnalytics() {
+      if (!window.gtagLoaded) {
+        window.gtagLoaded = true;
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HZ8H6521Q0';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage: 'granted'
+        });
+        gtag('config', 'G-HZ8H6521Q0');
+      }
+    }
+
+    /* ==========================================================================
+       6. ÉCHAPPEMENT HTML ANTI-XSS & FORMATTEUR USD
+       ========================================================================== */
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function formatMoney(amountMinor, currency = 'USD') {
+      const val = (amountMinor / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return `${val} ${currency}`;
+    }
+
+    /* ==========================================================================
+       7. COMPTEURS DYNAMIQUES DEPUIS LA BASE
+       ========================================================================== */
+    function getDirectoryStats() {
+      const totalServices = dbListings.length;
+      const countries = new Set(dbListings.map(l => l.country));
+      const distinctCountries = countries.size;
+      return { totalServices, distinctCountries };
+    }
+
+    /* ==========================================================================
+       8. AUTHENTIFICATION SUPABASE PERSISTANTE & VISIBLE
+       ========================================================================== */
+    function setupAuthListener() {
+      if (supabaseClient && supabaseClient.auth) {
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+          if (session && session.user) {
+            currentUser = {
+              id: session.user.id,
+              email: session.user.email,
+              name: session.user.user_metadata?.full_name || session.user.email.split('@')[0]
+            };
+          } else {
+            currentUser = null;
+          }
+          renderAuthNav();
+        });
+      } else {
+        renderAuthNav();
+      }
+    }
+
+    function renderAuthNav() {
+      const desktop = document.getElementById('authNavDesktop');
+      const mobile = document.getElementById('authNavMobile');
+
+      if (currentUser) {
+        desktop.innerHTML = `
+          <div class="relative group">
+            <button class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-500/50 text-xs text-white">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="font-bold truncate max-w-[130px]">${escapeHtml(currentUser.name)}</span>
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute right-0 mt-2 w-48 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl py-2 hidden group-hover:block hover:block z-50">
+              <a href="#/mon-espace" class="block px-4 py-2 text-xs text-slate-200 hover:bg-slate-800 hover:text-emerald-400">Mon espace entreprise</a>
+              <a href="#/apporteur" class="block px-4 py-2 text-xs text-slate-200 hover:bg-slate-800 hover:text-emerald-400">Espace apporteur</a>
+              <hr class="border-slate-800 my-1">
+              <button onclick="handleSignOut()" class="w-full text-left px-4 py-2 text-xs text-rose-400 hover:bg-slate-800">Déconnexion</button>
+            </div>
+          </div>
+        `;
+
+        mobile.innerHTML = `
+          <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 mb-2">
+            <span class="text-xs text-slate-400">Compte actif :</span>
+            <div class="font-bold text-white text-sm">${escapeHtml(currentUser.name)}</div>
+          </div>
+          <a href="#/mon-espace" class="w-full text-center py-2.5 rounded-xl bg-slate-800 text-slate-200 font-semibold text-sm">Mon Espace Entreprise</a>
+          <a href="#/apporteur" class="w-full text-center py-2.5 rounded-xl bg-slate-800 text-slate-200 font-semibold text-sm">Espace Apporteur d'Affaires</a>
+          <button onclick="handleSignOut()" class="w-full py-2.5 rounded-xl border border-rose-900/60 text-rose-400 font-bold text-sm">Déconnexion</button>
+        `;
+      } else {
+        desktop.innerHTML = `
+          <a href="#/connexion" class="px-4 py-2 rounded-xl text-slate-300 hover:text-white font-semibold text-xs border border-slate-700 hover:border-slate-600 transition-all">Connexion</a>
+          <a href="#/inscription" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition-all">Rejoindre</a>
+        `;
+        mobile.innerHTML = `
+          <a href="#/connexion" class="w-full text-center py-2.5 rounded-xl border border-slate-700 text-slate-200 font-semibold text-sm">Connexion</a>
+          <a href="#/inscription" class="w-full text-center py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-sm">Inscription gratuite</a>
+        `;
+      }
+    }
+
+    async function handleSignInWithGoogle() {
+      if (supabaseClient && supabaseClient.auth) {
+        const { error } = await supabaseClient.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.origin + window.location.pathname }
+        });
+        if (error) alert("Erreur Google : " + error.message);
+      } else {
+        currentUser = { id: 'usr-google', email: 'google.demo@b-money.com', name: 'Membre Google Test' };
+        renderAuthNav();
+        window.location.hash = '#/accueil';
+      }
+    }
+
+    async function handleSignOut() {
+      if (supabaseClient && supabaseClient.auth) {
+        await supabaseClient.auth.signOut();
+      }
+      currentUser = null;
+      renderAuthNav();
+      window.location.hash = '#/accueil';
+    }
+
+    /* ==========================================================================
+       9. ROUTEUR PAR HASH & SEO DYNAMIQUE
+       ========================================================================= */
+    function updateSEO(title, description, canonicalUrl, structuredData = null) {
+      document.title = `${title} | B-MONEY DIGITAL SERVICES`;
+      
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = description;
+
+      const canonicalTag = document.getElementById('canonicalTag');
+      if (canonicalTag) canonicalTag.href = canonicalUrl || window.location.href;
+
+      const schemaScript = document.getElementById('schema-jsonld');
+      if (schemaScript && structuredData) {
+        schemaScript.textContent = JSON.stringify(structuredData);
+      }
+    }
+
+    async function handleRouter() {
+      const hash = window.location.hash || '#/accueil';
+
+      if (hash.startsWith('#/fiche/')) {
+        const slug = hash.replace('#/fiche/', '').split('?')[0];
+        renderListingDetail(slug);
+        return;
+      }
+
+      if (hash.startsWith('#/categorie/')) {
+        const parts = hash.replace('#/categorie/', '').split('/');
+        const catSlug = decodeURIComponent(parts[0] || '');
+        const citySlug = decodeURIComponent(parts[1] || '');
+        renderCategoryCity(catSlug, citySlug);
+        return;
+      }
+
+      if ((hash === '#/mon-espace' || hash === '#/apporteur') && !currentUser) {
+        window.location.hash = `#/connexion?redirect=${encodeURIComponent(hash)}`;
+        return;
+      }
+
+      const routes = {
+        '#/accueil': renderHome,
+        '#/annuaire': renderDirectory,
+        '#/forfaits': renderPricing,
+        '#/affiliation': renderAffiliationOverview,
+        '#/creer-categorie': renderCreateCategory,
+        '#/scraping': renderScrapingLab,
+        '#/agent-ia': renderAgentIA,
+        '#/connexion': renderLogin,
+        '#/inscription': renderRegister,
+        '#/mot-de-passe-oublie': renderForgotPassword,
+        '#/mon-espace': renderMySpace,
+        '#/apporteur': renderAgentSpace,
+        '#/conditions': renderConditions,
+        '#/confidentialite': renderConfidentialite
+      };
+
+      const handler = routes[hash] || renderHome;
+      window.scrollTo(0, 0);
+      handler();
+      updateNavHighlight(hash);
+    }
+
+    function updateNavHighlight(currentHash) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentHash) {
+          link.classList.add('text-emerald-400', 'font-bold');
+        } else {
+          link.classList.remove('text-emerald-400', 'font-bold');
+        }
+      });
+      const drawer = document.getElementById('mobileDrawer');
+      if (drawer) drawer.classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       10. VUES & RENDUS HTML
+       ========================================================================== */
+
+    /* ACCUEIL (#/accueil) */
+    function renderHome() {
+      const { totalServices, distinctCountries } = getDirectoryStats();
+
+      updateSEO(
+        "B-MONEY DIGITAL SERVICES • SASC & Annuaire Mondial",
+        TEXTS.brand.heroDesc,
+        window.location.origin + "/#/accueil"
+      );
+
+      document.getElementById('app').innerHTML = `
+        <section class="relative pt-16 pb-20 overflow-hidden">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold mb-6">
+              <span>${TEXTS.brand.badge}</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-5xl mx-auto font-display">
+              Arrivez sur le marché <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">avant la saturation</span>. Pas quand la fête est finie.
+            </h1>
+
+            <p class="mt-6 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              ${TEXTS.brand.heroDesc}
+            </p>
+
+            <p class="mt-3 text-emerald-400 font-bold tracking-wide text-sm sm:text-base">
+              ${TEXTS.brand.heroQuote}
+            </p>
+
+            <div class="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-slate-900/90 border border-emerald-500/30 text-xs sm:text-sm shadow-xl">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-slate-300 font-medium">
+                Déjà <strong class="text-white font-extrabold">${totalServices}</strong> services référencés dans <strong class="text-emerald-400 font-extrabold">${distinctCountries}</strong> pays.
+              </span>
+              <a href="#/annuaire" class="ml-2 font-bold text-emerald-400 hover:text-emerald-300 underline">Explorer l'annuaire →</a>
+            </div>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="#/annuaire" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base transition-all shadow-lg shadow-emerald-500/20">
+                Explorer l'Annuaire Mondial
+              </a>
+              <a href="#/forfaits" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-base transition-all">
+                Découvrir les Forfaits
+              </a>
+              <a href="#/agent-ia" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-950 hover:bg-slate-900 text-emerald-400 border border-emerald-900/60 font-semibold text-base transition-all">
+                Consulter l'Agent IA
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="py-16 border-t border-slate-900 bg-slate-950/80">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">VITRINE OFFICIELLE</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white mt-1 font-display">Services Référencés</h2>
+                <p class="text-xs text-slate-400">Sites web établis ou prestataires directs (WhatsApp, local) sans jugement.</p>
+              </div>
+              <a href="#/annuaire" class="text-sm font-bold text-emerald-400 hover:underline">Voir l'annuaire complet (${totalServices} fiches) →</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${dbListings.slice(0, 3).map(listing => renderListingCardHtml(listing)).join('')}
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOC 1 -->
+        <section id="pourquoi-b-money" class="py-20 border-t border-slate-900 bg-slate-950/60">
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+              <span class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-950/40 border border-rose-800/40 px-3.5 py-1.5 rounded-full">${TEXTS.bloc1.tag}</span>
+              <h2 class="text-3xl sm:text-4xl font-black text-white mt-4 font-display">${TEXTS.bloc1.title}</h2>
+            </div>
+
+            <div class="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-10 shadow-xl space-y-5 text-slate-300 text-base leading-relaxed">
+              <p>${TEXTS.bloc1.p1}</p>
+              <p class="bg-slate-950 p-5 rounded-2xl border-l-4 border-rose-500 text-slate-200 italic">
+                ${TEXTS.bloc1.quote}
+              </p>
+              <p class="text-emerald-400 font-extrabold text-lg">
+                ${TEXTS.bloc1.conclusion}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOC 2 -->
+        <section id="solution-sasc" class="py-20 border-t border-slate-900 bg-slate-950">
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3.5 py-1.5 rounded-full">${TEXTS.bloc2.tag}</span>
+              <h2 class="text-3xl sm:text-4xl font-black text-white mt-4 font-display">${TEXTS.bloc2.title}</h2>
+              <p class="mt-2 text-emerald-400 font-bold text-lg">${TEXTS.bloc2.subtitle}</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/40 transition-colors">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">Étape 1</span>
+                <h3 class="text-lg font-bold text-white mt-2 mb-2 font-display">${TEXTS.bloc2.step1Title}</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">${TEXTS.bloc2.step1Desc}</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 transition-colors">
+                <span class="text-xs font-bold text-teal-400 uppercase tracking-wide">Étape 2</span>
+                <h3 class="text-lg font-bold text-white mt-2 mb-2 font-display">${TEXTS.bloc2.step2Title}</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">${TEXTS.bloc2.step2Desc}</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/40 transition-colors">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">Étape 3</span>
+                <h3 class="text-lg font-bold text-white mt-2 mb-2 font-display">${TEXTS.bloc2.step3Title}</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">${TEXTS.bloc2.step3Desc}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    /* CARTE DE FICHE */
+    function renderListingCardHtml(listing) {
+      let planBadge = '';
+      if (listing.plan_code === 'gold') {
+        planBadge = '<span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 border border-amber-400/40">Sponsorisé Or</span>';
+      } else if (listing.plan_code === 'premium') {
+        planBadge = '<span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-blue-500/20 text-blue-300 border border-blue-500/40">Premium</span>';
+      }
+
+      let statusBadge = '';
+      if (!listing.is_claimed) {
+        statusBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700">À réclamer</span>';
+      } else if (listing.is_claimed && !listing.affiliate_active && listing.caution_balance_minor <= 0) {
+        statusBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-950/60 text-amber-300 border border-amber-800">Caution requise</span>';
+      } else if (listing.affiliate_active) {
+        statusBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-500/40">Affiliation active</span>';
+      }
+
+      const isWebsite = listing.tier === 'website';
+
+      return `
+        <div class="rounded-3xl bg-slate-900 border ${listing.plan_code === 'gold' ? 'border-amber-500/50 shadow-lg shadow-amber-950/20' : 'border-slate-800'} p-6 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-lg">
+                ${escapeHtml(listing.category)}
+              </span>
+              <div class="flex items-center gap-1.5">
+                ${planBadge}
+                ${statusBadge}
+              </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-white font-display">
+              <a href="#/fiche/${escapeHtml(listing.slug)}" class="hover:text-emerald-400 transition-colors">
+                ${escapeHtml(listing.name)}
+              </a>
+            </h3>
+
+            <div class="flex items-center gap-2 mt-2 text-xs text-slate-400">
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>${escapeHtml(listing.city)}, ${escapeHtml(listing.country)}</span>
+              <span class="text-slate-400">•</span>
+              <span class="text-slate-400 font-medium">${escapeHtml(listing.scale)}</span>
+            </div>
+
+            <p class="mt-3 text-xs text-slate-300 line-clamp-2 leading-relaxed">
+              ${escapeHtml(listing.description)}
+            </p>
+
+            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Vitrine :</span>
+              <span class="font-semibold ${isWebsite ? 'text-blue-400' : 'text-emerald-400'}">
+                ${isWebsite ? '🌐 Site Web' : '📍 Service Direct (WhatsApp/Local)'}
+              </span>
+            </div>
+
+            ${listing.affiliate_active ? `
+              <div class="mt-2 p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 flex items-center justify-between text-xs">
+                <span class="text-slate-300">Commission apporteur :</span>
+                <span class="font-extrabold text-emerald-400">${formatMoney(listing.commission_per_lead_minor, listing.affiliate_currency)}</span>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2">
+            <a href="#/fiche/${escapeHtml(listing.slug)}" class="flex-1 text-center py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors">
+              Voir la fiche
+            </a>
+            ${listing.affiliate_active ? `
+              <button onclick="openLeadModal('${listing.id}')" class="px-3 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-all">
+                Prendre le lead
+              </button>
+            ` : ''}
+          </div>
         </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">Coordonnées de réception (Téléphone / IBAN / Adresse)</label>
-          <input id="withdrawAddress" type="text" required placeholder="Ex: +237 699 00 00 00 ou FR76..." class="w-full bg-night-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-500" />
+      `;
+    }
+
+    /* ANNUAIRE MONDIAL (#/annuaire) */
+    let currentFilter = { search: '', category: '', scale: '', tier: '' };
+
+    function renderDirectory() {
+      const { totalServices, distinctCountries } = getDirectoryStats();
+
+      updateSEO(
+        "Annuaire Mondial des Entreprises & Services Directs",
+        "Explorez des milliers de services vérifiés : entreprises avec sites web et commerçants de proximité dans plus de 140 pays.",
+        window.location.origin + "/#/annuaire"
+      );
+
+      const rankOrder = { gold: 1, premium: 2, standard: 3, free: 4 };
+      let filtered = dbListings.slice().sort((a, b) => (rankOrder[a.plan_code] || 4) - (rankOrder[b.plan_code] || 4));
+
+      if (currentFilter.search) {
+        const q = currentFilter.search.toLowerCase();
+        filtered = filtered.filter(l => 
+          l.name.toLowerCase().includes(q) || 
+          l.city.toLowerCase().includes(q) || 
+          l.country.toLowerCase().includes(q) ||
+          l.category.toLowerCase().includes(q)
+        );
+      }
+      if (currentFilter.category) filtered = filtered.filter(l => l.category === currentFilter.category);
+      if (currentFilter.scale) filtered = filtered.filter(l => l.scale === currentFilter.scale);
+      if (currentFilter.tier) filtered = filtered.filter(l => l.tier === currentFilter.tier);
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-8 border-b border-slate-900">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3.5 py-1.5 rounded-full">
+                RÉPERTOIRE MONDIAL SANS DISCRIMINATION
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-black text-white mt-4 font-display">L'Annuaire B-MONEY</h1>
+              <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+                Trouvez les prestataires certifiés à l'échelle locale, nationale ou mondiale. Chaque fiche propose soit un lien direct, soit un contact vérifié.
+              </p>
+            </div>
+            
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
+              <div>
+                <span class="text-xs text-slate-400 block">Total référencé en direct :</span>
+                <span class="text-xl font-black text-white font-display">${totalServices} services</span>
+              </div>
+              <div class="h-8 w-px bg-slate-800"></div>
+              <div>
+                <span class="text-xs text-slate-400 block">Couverture géographique :</span>
+                <span class="text-xl font-black text-emerald-400 font-display">${distinctCountries} pays</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-slate-800 p-4 sm:p-6 rounded-3xl mb-8 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Mots-clés / Ville</label>
+                <input 
+                  type="text" 
+                  placeholder="Ex: Douala, Cloud, Photo..." 
+                  value="${escapeHtml(currentFilter.search)}"
+                  oninput="onSearchFilterChange(this.value)"
+                  class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:border-emerald-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Catégorie</label>
+                <select 
+                  onchange="onCategoryFilterChange(this.value)"
+                  class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:border-emerald-500"
+                >
+                  <option value="">Toutes les catégories</option>
+                  ${BASE_CATEGORIES.map(cat => `
+                    <option value="${escapeHtml(cat)}" ${currentFilter.category === cat ? 'selected' : ''}>${escapeHtml(cat)}</option>
+                  `).join('')}
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Échelle</label>
+                <select 
+                  onchange="onScaleFilterChange(this.value)"
+                  class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:border-emerald-500"
+                >
+                  <option value="">Toutes les échelles</option>
+                  <option value="Locale" ${currentFilter.scale === 'Locale' ? 'selected' : ''}>Locale (Ville)</option>
+                  <option value="Pays" ${currentFilter.scale === 'Pays' ? 'selected' : ''}>Pays (National)</option>
+                  <option value="Continent" ${currentFilter.scale === 'Continent' ? 'selected' : ''}>Continent</option>
+                  <option value="Monde" ${currentFilter.scale === 'Monde' ? 'selected' : ''}>Monde (International)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Type de présence</label>
+                <select 
+                  onchange="onTierFilterChange(this.value)"
+                  class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:border-emerald-500"
+                >
+                  <option value="">Tous les types</option>
+                  <option value="website" ${currentFilter.tier === 'website' ? 'selected' : ''}>Site Web Officiel</option>
+                  <option value="service" ${currentFilter.tier === 'service' ? 'selected' : ''}>Service Direct (WhatsApp/Local)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 text-xs text-slate-400 border-t border-slate-800/60">
+              <span>Affichage de <strong class="text-white">${filtered.length}</strong> service(s)</span>
+              <a href="#/creer-categorie" class="text-emerald-400 hover:text-emerald-300 font-bold">
+                + Proposer une catégorie absente
+              </a>
+            </div>
+          </div>
+
+          ${filtered.length > 0 ? `
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${filtered.map(item => renderListingCardHtml(item)).join('')}
+            </div>
+          ` : `
+            <div class="text-center py-20 rounded-3xl bg-slate-900 border border-slate-800 p-8">
+              <p class="text-slate-400 text-base">Aucun service ne correspond à vos filtres pour le moment.</p>
+              <button onclick="resetDirectoryFilters()" class="mt-4 px-6 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                Réinitialiser les filtres
+              </button>
+            </div>
+          `}
+
         </div>
-        <div>
-        
+      `;
+    }
+
+    function onSearchFilterChange(val) { currentFilter.search = val; renderDirectory(); }
+    function onCategoryFilterChange(val) { currentFilter.category = val; renderDirectory(); }
+    function onScaleFilterChange(val) { currentFilter.scale = val; renderDirectory(); }
+    function onTierFilterChange(val) { currentFilter.tier = val; renderDirectory(); }
+    function resetDirectoryFilters() {
+      currentFilter = { search: '', category: '', scale: '', tier: '' };
+      renderDirectory();
+    }
+
+    /* SEO : CATÉGORIE & VILLE (#/categorie/:slug/:ville) */
+    function renderCategoryCity(catSlug, citySlug) {
+      const cleanCat = catSlug.replace(/-/g, ' ');
+      const cleanCity = citySlug.replace(/-/g, ' ');
+
+      const matches = dbListings.filter(l => 
+        l.category.toLowerCase().includes(cleanCat.toLowerCase()) &&
+        l.city.toLowerCase().includes(cleanCity.toLowerCase())
+      );
+
+      const title = `${cleanCat.toUpperCase()} à ${cleanCity.toUpperCase()} • Meilleurs Prestataires Vérifiés`;
+      const desc = `Découvrez les meilleurs prestataires de ${cleanCat} à ${cleanCity}. Avis, coordonnées directes et garanties.`;
+
+      updateSEO(title, desc, window.location.href, {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": matches.map((m, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": m.name,
+          "url": `${window.location.origin}/#/fiche/${m.slug}`
+        }))
+      });
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="mb-8 pb-6 border-b border-slate-900">
+            <div class="text-xs text-slate-400 mb-2">
+              <a href="#/annuaire" class="hover:text-emerald-400">Annuaire</a> / 
+              <span class="capitalize">${escapeHtml(cleanCat)}</span> / 
+              <span class="text-white capitalize">${escapeHtml(cleanCity)}</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-white font-display capitalize">
+              ${escapeHtml(cleanCat)} à ${escapeHtml(cleanCity)}
+            </h1>
+            <p class="text-slate-400 text-sm mt-2">${matches.length} professionnel(s) répertorié(s).</p>
+          </div>
+
+          ${matches.length > 0 ? `
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${matches.map(listing => renderListingCardHtml(listing)).join('')}
+            </div>
+          ` : `
+            <div class="rounded-3xl bg-slate-900 border border-slate-800 p-12 text-center">
+              <p class="text-slate-300">Aucun professionnel de cette spécialité n'est encore répertorié à ${escapeHtml(cleanCity)}.</p>
+              <a href="#/annuaire" class="mt-4 inline-block px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">Retour à l'annuaire général</a>
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    /* FICHE DÉTAIL D'UN SERVICE (#/fiche/:slug) */
+    function renderListingDetail(slug) {
+      const listing = dbListings.find(l => l.slug === slug);
+      if (!listing) {
+        document.getElementById('app').innerHTML = `
+          <div class="max-w-3xl mx-auto px-4 py-24 text-center">
+            <h2 class="text-3xl font-bold text-white font-display">Fiche introuvable</h2>
+            <p class="text-slate-400 text-sm mt-3">Cette fiche a été déplacée ou n'existe pas.</p>
+            <a href="#/annuaire" class="mt-6 inline-block px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">Retour à l'annuaire</a>
+          </div>
+        `;
+        return;
+      }
+
+      updateSEO(
+        listing.seo_title || `${listing.name} - ${listing.city}`,
+        listing.seo_description || listing.description,
+        window.location.href,
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": listing.name,
+          "description": listing.description,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": listing.address,
+            "addressLocality": listing.city,
+            "addressCountry": listing.country
+          },
+          "url": listing.website || window.location.href
+        }
+      );
+
+      const isWebsite = listing.tier === 'website';
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          
+          ${!listing.is_claimed ? `
+            <div class="p-4 rounded-2xl bg-amber-950/40 border border-amber-800/60 mb-6 flex items-center justify-between flex-wrap gap-4">
+              <div class="text-xs text-amber-200">
+                <strong>Fiche d'information publique en attente de réclamation par le propriétaire.</strong>
+                <p class="text-amber-300/80 text-[11px] mt-0.5">Source publique. Données recueillies à titre indicatif.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button onclick="requestListingRemoval('${listing.id}')" class="text-xs text-slate-400 hover:text-white underline">
+                  Demander la suppression
+                </button>
+                <button onclick="claimListingAction('${listing.id}')" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors">
+                  C'est votre établissement ? Réclamez gratuitement
+                </button>
+              </div>
+            </div>
+          ` : ''}
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-6">
+              <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-full">
+                    ${escapeHtml(listing.category)}
+                  </span>
+                  <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
+                    Échelle ${escapeHtml(listing.scale)}
+                  </span>
+                  ${listing.verified ? '<span class="text-xs text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded-full border border-blue-800">✓ Vérifié</span>' : ''}
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl font-black text-white font-display">
+                  ${escapeHtml(listing.name)}
+                </h1>
+
+                <div class="flex items-center gap-2 text-sm text-slate-400 mt-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                  <span>${escapeHtml(listing.address)}, ${escapeHtml(listing.city)}, ${escapeHtml(listing.country)}</span>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-800 space-y-4">
+                  <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300">Description du service</h3>
+                  <p class="text-slate-300 text-sm leading-relaxed whitespace-pre-line">
+                    ${escapeHtml(listing.description)}
+                  </p>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-800">
+                  <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Mots-clés associés</h3>
+                  <div class="flex flex-wrap gap-2">
+                    ${(listing.keywords || '').split(',').map(kw => `
+                      <span class="text-xs bg-slate-950 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg">#${escapeHtml(kw.trim())}</span>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+
+              ${listing.is_claimed && !listing.affiliate_active ? `
+                <div class="p-6 rounded-3xl bg-blue-950/30 border border-blue-800/40 space-y-3">
+                  <h3 class="text-base font-bold text-white font-display">Activer l'apport d'affaires pour votre établissement</h3>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Votre fiche est réclamée mais le marché de leads est en attente. Déposez votre caution séquestrée pour recevoir des clients vérifiés.
+                  </p>
+                  <button onclick="openCautionModal('${listing.id}')" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-colors">
+                    Déposer ma caution de garantie →
+                  </button>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- CONTACT DIRECT & APPORT D'AFFAIRES -->
+            <div class="space-y-6">
+              <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
+                <h3 class="text-base font-bold text-white font-display">Contacter l'établissement</h3>
+                ${isWebsite && listing.website ? `
+                  <a href="${escapeHtml(listing.website)}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors">
+                    <span>Visiter le site officiel</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </a>
+                ` : `
+                  <a href="https://wa.me/${(listing.whatsapp || '').replace(/[^0-9]/g, '')}" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors">
+                    <span>Échanger sur WhatsApp</span>
+                  </a>
+                `}
+                <p class="text-[11px] text-slate-400 text-center">Aucune barrière commerciale : contact direct et gratuit.</p>
+              </div>
+
+              <div class="p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-emerald-950/40 border border-emerald-500/30 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Apport d'affaires</span>
+                  <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-bold">Séquestre 30j</span>
+                </div>
+
+                ${listing.affiliate_active ? `
+                  <div>
+                    <span class="text-xs text-slate-300 block">Commission nette versée par client :</span>
+                    <span class="text-2xl font-black text-white font-display">${formatMoney(listing.commission_per_lead_minor, listing.affiliate_currency)}</span>
+                    <p class="text-[11px] text-slate-400 mt-1">Frais plateforme déduits. Fonds bloqués dès l'accord du prospect.</p>
+                  </div>
+                  <button onclick="openLeadModal('${listing.id}')" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-all shadow-lg shadow-emerald-500/20">
+                    Transmettre un client (Prendre le lead)
+                  </button>
+                ` : `
+                  <div class="p-3 bg-slate-950/80 rounded-2xl border border-slate-800 text-xs text-slate-300 space-y-2">
+                    <p>L'affiliation pour cette fiche est en attente de dépôt de caution du propriétaire.</p>
+                    <div class="text-[11px] text-slate-400">
+                      <strong>14 apporteurs</strong> sont actuellement inscrits sur la liste d'attente.
+                    </div>
+                  </div>
+                  <button onclick="joinLeadWaitlist('${listing.id}')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+                    Rejoindre la liste d'attente
+                  </button>
+                `}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    /* LES FORFAITS (#/forfaits) */
+    let currentPricingTab = 'annuaire';
+
+    function renderPricing() {
+      updateSEO(
+        "Nos Forfaits • Visibilité Annuaire & SASC Propriétaire",
+        "Choisissez votre formule : Visibilité sur l'Annuaire mondial ou Système Automatisé de Scraping et de Cartographie (SASC).",
+        window.location.origin + "/#/forfaits"
+      );
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3.5 py-1.5 rounded-full">
+              TARIFICATION OFFICIELLE
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white mt-4 font-display">
+              Deux gammes pour propulser vos activités
+            </h1>
+            <p class="mt-3 text-slate-300 text-base">
+              Basculez entre notre offre de visibilité sur l'Annuaire mondial et notre moteur SASC de cartographie de marchés.
+            </p>
+
+            <div class="mt-8 inline-flex p-1.5 rounded-2xl bg-slate-900 border border-slate-800">
+              <button 
+                onclick="switchPricingTab('annuaire')" 
+                class="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${currentPricingTab === 'annuaire' ? 'bg-emerald-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'}"
+              >
+                1. Forfaits Annuaire (Visibilité & Frais)
+              </button>
+              <button 
+                onclick="switchPricingTab('sasc')" 
+                class="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${currentPricingTab === 'sasc' ? 'bg-emerald-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'}"
+              >
+                2. Forfaits SASC (Chasse aux Niches)
+              </button>
+            </div>
+          </div>
+
+          ${currentPricingTab === 'annuaire' ? `
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              
+              <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] uppercase font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300">Essentiel</span>
+                  <h3 class="text-xl font-black text-white mt-3 font-display">GRATUIT</h3>
+                  <div class="my-4">
+                    <span class="text-3xl font-black text-white font-display">0 $</span>
+                    <span class="text-slate-400 text-xs">/ à vie</span>
+                  </div>
+                  <ul class="space-y-3 text-xs text-slate-300">
+                    <li>• Référencement de base</li>
+                    <li>• Affiliation active après caution</li>
+                    <li>• Frais de plateforme : <strong class="text-rose-400">10%</strong></li>
+                    <li>• Placé en bas de liste</li>
+                  </ul>
+                </div>
+                <a href="#/mon-espace" class="mt-8 block text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+                  Référencer mon service
+                </a>
+              </div>
+
+              <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] uppercase font-bold px-2.5 py-1 rounded-full bg-slate-800 text-emerald-400">Position Haute</span>
+                  <h3 class="text-xl font-black text-white mt-3 font-display">STANDARD</h3>
+                  <div class="my-4">
+                    <span class="text-3xl font-black text-white font-display">30 $</span>
+                    <span class="text-slate-400 text-xs">/ mois ou 290$/an</span>
+                  </div>
+                  <ul class="space-y-3 text-xs text-slate-300">
+                    <li>• Référencé en haut, devant tous les gratuits</li>
+                    <li>• Frais de plateforme réduits à <strong class="text-emerald-400">8%</strong></li>
+                    <li>• WhatsApp et lien mis en avant</li>
+                  </ul>
+                </div>
+                <button onclick="openExternalCheckout('Annuaire Standard', '30 $')" class="mt-8 w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+                  Souscrire Standard
+                </button>
+              </div>
+
+              <div class="rounded-3xl bg-slate-900 border border-blue-500/40 p-6 flex flex-col justify-between relative shadow-xl shadow-blue-950/20">
+                <div>
+                  <span class="text-[11px] uppercase font-bold px-2.5 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800">Populaire</span>
+                  <h3 class="text-xl font-black text-white mt-3 font-display">PREMIUM</h3>
+                  <div class="my-4">
+                    <span class="text-3xl font-black text-white font-display">80 $</span>
+                    <span class="text-slate-400 text-xs">/ mois ou 790$/an</span>
+                  </div>
+                  <ul class="space-y-3 text-xs text-slate-300">
+                    <li>• Position prioritaire garantie</li>
+                    <li>• Badge officiel <strong class="text-blue-400">« Premium »</strong></li>
+                    <li>• Frais de plateforme réduits à <strong class="text-emerald-400">5%</strong></li>
+                    <li>• Recommandation dans les catégories connexes</li>
+                  </ul>
+                </div>
+                <button onclick="openExternalCheckout('Annuaire Premium', '80 $')" class="mt-8 w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-colors">
+                  Passer en Premium
+                </button>
+              </div>
+
+              <div class="rounded-3xl bg-slate-900 border-2 border-amber-400/80 p-6 flex flex-col justify-between relative shadow-xl shadow-amber-950/30">
+                <div>
+                  <span class="text-[11px] uppercase font-bold px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40">Excellence</span>
+                  <h3 class="text-xl font-black text-white mt-3 font-display">SPONSORISÉ OR</h3>
+                  <div class="my-4">
+                    <span class="text-3xl font-black text-white font-display">100 $</span>
+                    <span class="text-slate-400 text-xs">/ mois ou 990$/an</span>
+                  </div>
+                  <ul class="space-y-3 text-xs text-slate-300">
+                    <li>• Tout en haut absolu de l'annuaire</li>
+                    <li>• Badge d'autorité <strong class="text-amber-300">« Sponsorisé Or »</strong></li>
+                    <li>• Frais minimaux garantis : <strong class="text-emerald-400">2%</strong></li>
+                    <li>• Mise en avant newsletter et accueil</li>
+                  </ul>
+                </div>
+                <button onclick="openExternalCheckout('Annuaire Sponsorisé Or', '100 $')" class="mt-8 w-full py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition-colors">
+                  Dominer l'Annuaire
+                </button>
+              </div>
+
+            </div>
+          ` : `
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              
+              <div class="rounded-3xl bg-slate-900 border border-slate-800 p-8 flex flex-col justify-between">
+                <div>
+                  <span class="text-xs uppercase font-bold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Idéal Débutants</span>
+                  <h3 class="text-2xl font-black text-white mt-4 font-display">FORFAIT 1 : DÉCOUVERTE</h3>
+                  <p class="text-emerald-400 font-bold text-sm">Pour trouver l'idée juste</p>
+                  <p class="text-xs text-slate-400 mt-1 italic">Idéal pour créateurs, auteurs, formateurs et entrepreneurs en quête d'inspiration.</p>
+
+                  <div class="my-6 pb-6 border-b border-slate-800">
+                    <span class="text-4xl font-black text-white font-display">30$</span>
+                    <span class="text-slate-400 text-sm">/ mois ou 290$ / an</span>
+                  </div>
+
+                  <div class="space-y-4 text-xs text-slate-300">
+                    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                      <span class="font-bold text-white block mb-1">A) Le Radar d'Inspiration [QUOI créer]</span>
+                      <p class="text-slate-400 mb-2">Volume exact de recherche & courbe de douleur (+22% ou effondrement). Exemple : "comment arrêter de procrastiner" → 18 500 recherches.</p>
+                      <span class="text-emerald-400 font-semibold block">Vous répondez à une demande réelle.</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                      <span class="font-bold text-white block mb-1">B) Le Radar des Niches Naissantes [OÙ créer]</span>
+                      <p class="text-slate-400">Pour les chasseurs de business. Détection des nouvelles niches à très faible concurrence, courbe d'intérêt et potentiel de revenu.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <button onclick="openExternalCheckout('SASC Découverte', '30 $ / mois')" class="mt-8 w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition-all text-center">
+                  Commencer avec Découverte
+                </button>
+              </div>
+
+              <div class="rounded-3xl bg-slate-900 border border-blue-500/40 p-8 flex flex-col justify-between relative shadow-xl shadow-blue-950/30">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-blue-600 text-white font-black text-[11px] uppercase tracking-wider">
+                  Populaire • Veille Stratégique
+                </div>
+                <div>
+                  <span class="text-xs uppercase font-bold px-3 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800">Pour Business & Salariés</span>
+                  <h3 class="text-2xl font-black text-white mt-4 font-display">FORFAIT 2 : STRATÉGIE</h3>
+                  <p class="text-blue-400 font-bold text-sm">Pour ne pas mourir</p>
+                  <p class="text-xs text-slate-400 mt-1 italic">Toute niche a deux destins : elle se réinvente, ou elle dégénère et meurt.</p>
+
+                  <div class="my-6 pb-6 border-b border-slate-800">
+                    <span class="text-4xl font-black text-white font-display">80$</span>
+                    <span class="text-slate-400 text-sm">/ mois ou 790$ / an</span>
+                  </div>
+
+                  <div class="space-y-3 text-xs text-slate-300">
+                    <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                      <strong class="text-white block">1. Diagnostic : Réinvention ou Dégénérescence ?</strong>
+                      <p class="text-slate-400 mt-0.5">Votre secteur [e-commerce, coaching, dev] est-il en train de se réinventer ou condamné ?</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                      <strong class="text-emerald-400 block">2. Si votre secteur se réinvente :</strong>
+                      <p class="text-slate-400 mt-0.5">Avancées, nouveaux outils et méthodes pour surpasser collègues et clients.</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                      <strong class="text-rose-400 block">3. Si votre secteur dégénère :</strong>
+                      <p class="text-slate-400 mt-0.5">Alerte claire et orientation vers les formations et pivots (comme les dev vers l'IA).</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-blue-950/40 border border-blue-900/50 text-[11px] text-blue-200">
+                      Les 5 questions exactes posées : où la concurrence a répondu vs terrain vide.
+                    </div>
+                  </div>
+                </div>
+
+                <button onclick="openExternalCheckout('SASC Stratégie', '80 $ / mois')" class="mt-8 w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all text-center">
+                  Passer en Pro
+                </button>
+              </div>
+
+              <div class="rounded-3xl bg-slate-900 border-2 border-emerald-500 p-8 flex flex-col justify-between relative shadow-2xl shadow-emerald-950/60">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-500 text-slate-950 font-black text-[11px] uppercase tracking-wider">
+                  L'Arme Absolue • Premium
+                </div>
+                <div>
+                  <span class="text-xs uppercase font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Économisez 210$/an</span>
+                  <h3 class="text-2xl font-black text-white mt-4 font-display">FORFAIT 3 : PREMIUM</h3>
+                  <p class="text-emerald-400 font-bold text-sm">Pour devenir le numéro 1</p>
+                  <p class="text-xs text-slate-300 mt-1 font-medium">Tout le Forfait 1 + tout le Forfait 2, PLUS :</p>
+
+                  <div class="my-6 pb-6 border-b border-emerald-900/40">
+                    <span class="text-4xl font-black text-white font-display">100$</span>
+                    <span class="text-slate-400 text-sm">/ mois ou 990$ / an</span>
+                  </div>
+
+                  <div class="space-y-4 text-xs text-slate-300">
+                    <div class="p-4 rounded-xl bg-slate-950 border border-emerald-900/50">
+                      <span class="font-bold text-white block mb-1">A) La Carte de la Concurrence</span>
+                      <p class="text-slate-300"><span class="text-rose-400 font-bold">ROUGE :</span> Zones saturées (à fuir). <span class="text-emerald-400 font-bold">VERT :</span> Zones VIERGES où la marge est <strong class="text-emerald-300">multipliée par 10</strong>.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950 border border-emerald-900/50">
+                      <span class="font-bold text-white block mb-1">B) L'Accompagnement B-MONEY via Agent IA</span>
+                      <p class="text-slate-300 leading-relaxed">Guide IA avec programme de travail [hebdo / bi-hebdo] et temps de repos. Rapport hebdomadaire analysé et corrigé pour concrétiser.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <button onclick="openExternalCheckout('SASC Premium', '100 $ / mois')" class="mt-8 w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-base transition-all text-center shadow-lg shadow-emerald-500/25">
+                  Dominer mon marché
+                </button>
+              </div>
+
+            </div>
+          `}
+
+        </div>
+      `;
+    }
+
+    function switchPricingTab(tab) {
+      currentPricingTab = tab;
+      renderPricing();
+    }
+
+    /* AFFILIATION & MARCHÉ DE LEADS (#/affiliation) */
+    function renderAffiliationOverview() {
+      updateSEO(
+        "Programme d'Affiliation & Marché de Leads B-MONEY",
+        "Deux opportunités : commissions directes sur abonnements SASC (jusqu'à 198$/vente) et apport d'affaires avec caution séquestrée.",
+        window.location.origin + "/#/affiliation"
+      );
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3.5 py-1.5 rounded-full">
+              PROGRAMME APPORTEURS D'AFFAIRES
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white mt-4 font-display">
+              Deux manières transparentes d'encaisser
+            </h1>
+            <p class="mt-3 text-slate-300 text-base">Règles claires, protection par caution obligatoire et aucune promesse irréaliste.</p>
+          </div>
+
+          <div class="mb-16 rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-10">
+            <div class="max-w-3xl mb-8">
+              <span class="text-xs font-black uppercase text-blue-400">Affiliation Volet 1</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-white mt-1 font-display">Recruter des Abonnés au SASC</h2>
+              <p class="text-xs sm:text-sm text-slate-400 mt-2">
+                Commission payée <strong>une seule fois par vente</strong> (jamais chaque mois). Votre prime est disponible dès encaissement.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-xs text-slate-400 block">Abonnement 30$ / mois</span>
+                <span class="text-2xl font-black text-emerald-400 font-display">9 $</span>
+                <span class="text-[11px] text-slate-400 block mt-1">Commission de 30%</span>
+              </div>
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-xs text-slate-400 block">Abonnement 80$ / mois</span>
+                <span class="text-2xl font-black text-emerald-400 font-display">20 $</span>
+                <span class="text-[11px] text-slate-400 block mt-1">Commission de 25%</span>
+              </div>
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-xs text-slate-400 block">Abonnement 100$ / mois</span>
+                <span class="text-2xl font-black text-emerald-400 font-display">25 $</span>
+                <span class="text-[11px] text-slate-400 block mt-1">Commission de 25%</span>
+              </div>
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-xs text-slate-400 block">Forfait Annuel 290$</span>
+                <span class="text-2xl font-black text-teal-400 font-display">58 $</span>
+                <span class="text-[11px] text-slate-400 block mt-1">Commission de 20%</span>
+              </div>
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-xs text-slate-400 block">Forfait Annuel 790$</span>
+                <span class="text-2xl font-black text-teal-400 font-display">158 $</span>
+                <span class="text-[11px] text-slate-400 block mt-1">Commission de 20%</span>
+              </div>
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-xs text-slate-400 block">Forfait Annuel 990$</span>
+                <span class="text-2xl font-black text-teal-400 font-display">198 $</span>
+                <span class="text-[11px] text-slate-400 block mt-1">Commission de 20%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-slate-900 border border-emerald-500/30 p-8 sm:p-10">
+            <div class="max-w-3xl mb-8">
+              <span class="text-xs font-black uppercase text-emerald-400">Affiliation Volet 2</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-white mt-1 font-display">Le Marché de Leads Sécurisé</h2>
+              <p class="text-xs sm:text-sm text-slate-300 mt-2">
+                Le modèle d'affiliation traditionnel est vulnérable à la mauvaise foi. Sur B-MONEY, le vendeur dépose sa caution avant toute mise en relation.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">1</div>
+                <strong class="text-white block font-display text-sm">Caution Obligatoire Préalable</strong>
+                <p class="text-slate-400 leading-relaxed">
+                  Aucun vendeur ne peut promettre une commission sans avoir versé en garantie la commission d'un client apporté (USD). Si la réserve tombe à zéro, la fiche est suspendue.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">2</div>
+                <strong class="text-white block font-display text-sm">Vérification SMS OTP & Accord</strong>
+                <p class="text-slate-400 leading-relaxed">
+                  Le client confirme son numéro par SMS et coche expressément son accord de transmission commerciale.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">3</div>
+                <strong class="text-white block font-display text-sm">Séquestre 30 Jours Garanti</strong>
+                <p class="text-slate-400 leading-relaxed">
+                  Le vendeur a 30 jours pour contester (pour « sans réponse », 3 appels distincts horodatés sont obligatoires). Au 31e jour, la somme est acquise à l'apporteur.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between flex-wrap gap-4">
+              <a href="#/apporteur" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-all shadow-md shadow-emerald-500/20">
+                Ouvrir mon tableau de bord apporteur →
+              </a>
+              <a href="#/conditions" class="text-xs text-slate-400 hover:text-white underline">
+                Consulter les règles et sanctions anti-fraude
+              </a>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    /* CRÉER UNE CATÉGORIE (#/creer-categorie) */
+    function renderCreateCategory() {
+      updateSEO(
+        "Suggérer une Nouvelle Catégorie",
+        "Proposez une catégorie absente. Après validation, elle devient une page publique indexée.",
+        window.location.origin + "/#/creer-categorie"
+      );
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-2xl mx-auto px-4 py-16">
+          <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl">
+            <div class="mb-8">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3 py-1 rounded-full">EXPANSION DE L'ANNUAIRE</span>
+              <h1 class="text-2xl sm:text-3xl font-black text-white mt-3 font-display">Proposer une Catégorie Manquante</h1>
+              <p class="text-xs text-slate-400 mt-2">Votre proposition sera examinée sous 24h ouvrées.</p>
+            </div>
+
+            <form onsubmit="handleCategoryProposal(event)" class="space-y-4 text-xs">
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Nom de la catégorie *</label>
+                <input type="text" id="propCatName" required placeholder="Ex: Métallerie lourde, Orthophonie..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:border-emerald-500" />
+              </div>
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Description et champ d'application *</label>
+                <textarea id="propCatDesc" required rows="4" placeholder="Précisez quels types de professionnels sont concernés..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:border-emerald-500"></textarea>
+              </div>
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Votre email de suivi *</label>
+                <input type="email" id="propCatEmail" required placeholder="contact@exemple.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:border-emerald-500" />
+              </div>
+              <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+                La catégorie est soumise avec le statut <code>valide = false</code> pour examen anti-spam.
+              </div>
+              <button type="submit" id="propSubmitBtn" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm tracking-wide transition-all shadow-md shadow-emerald-500/20">
+                Envoyer ma proposition pour validation
+              </button>
+            </form>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleCategoryProposal(e) {
+      e.preventDefault();
+      const name = document.getElementById('propCatName').value;
+      const email = document.getElementById('propCatEmail').value;
+      const btn = document.getElementById('propSubmitBtn');
+      btn.innerText = "Transmission...";
+
+      setTimeout(() => {
+        alert(`Merci ! La proposition « ${name} » est en cours d'examen. Une notification sera envoyée à ${email}.`);
+        btn.innerText = "Envoyer ma proposition pour validation";
+        window.location.hash = '#/annuaire';
+      }, 800);
+    }
+
+    /* ESPACE APPORTEUR D'AFFAIRES (#/apporteur) */
+    function renderAgentSpace() {
+      updateSEO("Espace Apporteur d'Affaires", "Portefeuille en séquestre et retraits disponibles", window.location.origin + "/#/apporteur");
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="flex items-center justify-between mb-8 pb-6 border-b border-slate-900 flex-wrap gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">TABLEAU DE BORD PRIVÉ</span>
+              <h1 class="text-2xl sm:text-4xl font-black text-white mt-1 font-display">Espace Apporteur d'Affaires</h1>
+              <p class="text-xs sm:text-sm text-slate-400">Séquestre 30 jours garanti et suivi transparent des gains en USD.</p>
+            </div>
+            <a href="#/annuaire" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs">
+              + Prendre un nouveau lead
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div class="p-6 rounded-3xl bg-slate-900 border border-amber-800/40">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs uppercase font-bold text-amber-300">Portefeuille 1 • En Séquestre (30 jours)</span>
+                <span class="text-[10px] bg-amber-950 text-amber-400 border border-amber-800 px-2 py-0.5 rounded-full font-bold">Non retirable</span>
+              </div>
+              <div class="text-3xl sm:text-4xl font-black text-white font-display my-2">
+                $${(userAffiliateData.pendingBalance).toLocaleString('en-US', { minimumFractionDigits: 2 })} USD
+              </div>
+              <p class="text-xs text-slate-400">Fonds bloqués sur la caution des vendeurs. Devient « Disponible » au 31e jour sans contestation valide.</p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-slate-900 border border-emerald-500/40">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs uppercase font-bold text-emerald-400">Portefeuille 2 • Fonds Disponibles</span>
+                <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">Retrait direct</span>
+              </div>
+              <div class="text-3xl sm:text-4xl font-black text-emerald-400 font-display my-2">
+                $${(userAffiliateData.availableBalance).toLocaleString('en-US', { minimumFractionDigits: 2 })} USD
+              </div>
+              <div class="flex items-center justify-between gap-4 mt-3">
+                <p class="text-xs text-slate-400">Virement bancaire international, PayPal, Wise ou conversion directe.</p>
+                <button onclick="openWithdrawModal()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shrink-0">
+                  Retirer mes gains
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-8">
+            <h3 class="text-lg font-bold text-white font-display mb-4">Historique des Prospects & Commissions</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-slate-300">
+                <thead class="text-slate-400 uppercase tracking-wider border-b border-slate-800">
+                  <tr>
+                    <th class="py-3 px-3">Identifiant</th>
+                    <th class="py-3 px-3">Établissement</th>
+                    <th class="py-3 px-3">Client</th>
+                    <th class="py-3 px-3">Date</th>
+                    <th class="py-3 px-3">Gain Net</th>
+                    <th class="py-3 px-3">Statut & Échéance</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60">
+                  ${userAffiliateData.leads.map(lead => `
+                    <tr>
+                      <td class="py-3 px-3 font-mono text-slate-400">${lead.id}</td>
+                      <td class="py-3 px-3 font-semibold text-white">${escapeHtml(lead.listingName)}</td>
+                      <td class="py-3 px-3">${escapeHtml(lead.clientName)} (${lead.phone})</td>
+                      <td class="py-3 px-3 text-slate-400">${lead.date}</td>
+                      <td class="py-3 px-3 font-extrabold text-emerald-400">$${lead.amountNet.toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</td>
+                      <td class="py-3 px-3">
+                        ${lead.status === 'PENDING' ? `
+                          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-950/60 text-amber-300 border border-amber-800 font-medium">
+                            En séquestre • J-${lead.daysLeft}
+                          </span>
+                        ` : `
+                          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 font-medium">
+                            ✓ Débloqué
+                          </span>
+                        `}
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* MON ESPACE ENTREPRISE (#/mon-espace) */
+    function renderMySpace() {
+      updateSEO("Mon Espace Entreprise", "Gérer mes fiches, ma caution et mes leads", window.location.origin + "/#/mon-espace");
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="flex items-center justify-between mb-8 pb-6 border-b border-slate-900 flex-wrap gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">TABLEAU DE BORD VENDEUR</span>
+              <h1 class="text-2xl sm:text-4xl font-black text-white mt-1 font-display">Gestion de mes Fiches & Cautions</h1>
+              <p class="text-xs sm:text-sm text-slate-400">Contrôlez vos primes d'apport, votre réserve séquestrée en USD et vos contestations.</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800 mb-8 flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <span class="text-xs uppercase font-bold text-slate-400 block">Indicateur de Confiance Vendeur</span>
+              <span class="text-2xl font-black text-emerald-400 font-display">96% de validation</span>
+              <p class="text-xs text-slate-400 mt-1">
+                Règle : Un taux de contestation refusé supérieur à 80% déclenche le statut « Vendeur suspect » et met la fiche en pause.
+              </p>
+            </div>
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30">
+              Compte Vérifié & Conforme
+            </span>
+          </div>
+
+          <div class="space-y-6">
+            <h3 class="text-lg font-bold text-white font-display">Mes Établissements Enregistrés</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              ${dbListings.slice(0, 2).map(listing => `
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-emerald-400">${escapeHtml(listing.category)}</span>
+                    <span class="text-xs bg-slate-800 px-2.5 py-0.5 rounded text-slate-300">Plan ${listing.plan_code}</span>
+                  </div>
+
+                  <h4 class="text-xl font-bold text-white font-display">${escapeHtml(listing.name)}</h4>
+                  <p class="text-xs text-slate-400">${escapeHtml(listing.city)}, ${escapeHtml(listing.country)}</p>
+
+                  <div class="p-3 bg-slate-950 rounded-2xl border border-slate-800 flex items-center justify-between text-xs">
+                    <span class="text-slate-400">Caution Séquestrée :</span>
+                    <span class="font-mono font-bold ${listing.caution_balance_minor > 0 ? 'text-emerald-400' : 'text-amber-400'}">
+                      ${formatMoney(listing.caution_balance_minor, listing.affiliate_currency)}
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-2 pt-2">
+                    <button onclick="openCautionModal('${listing.id}')" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors">
+                      Recharger la caution
+                    </button>
+                    <button onclick="openDisputeDialog()" class="px-3 py-2.5 rounded-xl border border-slate-700 text-slate-300 hover:text-white text-xs">
+                      Contester un prospect
+                    </button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* LABORATOIRE SASC LIVE (#/scraping) */
+    function renderScrapingLab() {
+      updateSEO("Laboratoire SASC Live", "Démonstration du scanner mondial de signaux faibles", window.location.origin + "/#/scraping");
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3.5 py-1.5 rounded-full">
+              SASC LIVE ENGINE (EXEMPLE)
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white mt-4 font-display">
+              Cartographie des Signaux Faibles
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">
+              Le moteur SASC sépare les fausses modes des marchés rentables non saturés.
+            </p>
+          </div>
+
+          <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-8 font-mono text-xs text-slate-300 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800 text-slate-400">
+              <span class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                SCAN CONTINU EN COURS
+              </span>
+              <span>142 pays scannés (exemple)</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-3 bg-slate-950 rounded-xl border-l-4 border-emerald-500">
+                <span class="text-emerald-400">[DÉTECTION]</span> Niche naissante : Micro-stations solaires portables (Afrique Centrale) — Demande +38%, Concurrence : FAIBLE (Marge x8.4).
+              </div>
+              <div class="p-3 bg-slate-950 rounded-xl border-l-4 border-teal-500">
+                <span class="text-teal-400">[DOULEUR RÉELLE]</span> Terme "logiciel facturation btp hors-ligne" — Volume 14 200 req/m, Accélération +19%.
+              </div>
+              <div class="p-3 bg-slate-950 rounded-xl border-l-4 border-rose-500">
+                <span class="text-rose-400">[ALERTE SATURATION]</span> Dropshipping coques de téléphone — Marges compressées (-64%). Zone ROUGE à fuir.
+              </div>
+            </div>
+
+            <div class="pt-4 text-center">
+              <a href="#/forfaits" class="inline-block px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold font-sans">
+                Accéder au rapport complet via les Forfaits SASC →
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* AGENT IA B-MONEY (#/agent-ia) */
+    function renderAgentIA() {
+      updateSEO("Agent Stratégique IA B-MONEY", TEXTS.agentIA.subtitle, window.location.origin + "/#/agent-ia");
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div class="text-center mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3.5 py-1.5 rounded-full">
+              ${TEXTS.agentIA.tag}
+            </span>
+            <h1 class="text-3xl font-black text-white mt-4 font-display">${TEXTS.agentIA.title}</h1>
+            <p class="text-slate-400 text-sm mt-2">${TEXTS.agentIA.subtitle}</p>
+          </div>
+
+          <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 shadow-2xl">
+            <div id="chatLog" class="h-80 overflow-y-auto space-y-3 p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs">
+              <div class="p-3 bg-slate-900 rounded-xl text-slate-200 border border-slate-800">
+                <strong class="text-emerald-400 block mb-1">Agent IA B-MONEY :</strong>
+                Bonjour. Je suis connecté au flux d'intelligence SASC. Quel est votre secteur ou votre rapport d'avancement pour cette semaine ?
+              </div>
+            </div>
+
+            <form id="chatForm" onsubmit="handleAgentChat(event)" class="mt-4 flex gap-2">
+              <input 
+                id="chatInput" 
+                type="text" 
+                placeholder="Transmettre votre rapport ou tester une idée..." 
+                class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-500" 
+                required 
+              />
+              <button type="submit" class="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm">
+                Envoyer
+              </button>
+            </form>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleAgentChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const log = document.getElementById('chatLog');
+      const userDiv = document.createElement('div');
+      userDiv.className = "p-3 bg-blue-600 text-white rounded-xl text-right text-xs ml-auto max-w-[80%]";
+      userDiv.innerText = text;
+      log.appendChild(userDiv);
+      input.value = "";
+      log.scrollTop = log.scrollHeight;
+
+      setTimeout(() => {
+        const botDiv = document.createElement('div');
+        botDiv.className = "p-3 bg-slate-900 rounded-xl text-slate-200 border border-slate-800 text-xs mr-auto max-w-[85%]";
+        botDiv.innerHTML = "<strong class='text-emerald-400 block mb-1'>Agent IA B-MONEY :</strong> Votre retour a été analysé par le scanner SASC. Le marché montre un potentiel de marge x10 sur ce créneau. Maintenez le cap pour la semaine prochaine !";
+        log.appendChild(botDiv);
+        log.scrollTop = log.scrollHeight;
+      }, 700);
+    }
+
+    /* AUTHENTIFICATION : CONNEXION, INSCRIPTION, MDP OUBLIÉ */
+    function renderLogin() {
+      updateSEO("Connexion", "Connectez-vous à votre espace B-MONEY", window.location.href);
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-md mx-auto px-4 py-16">
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl">
+            <h1 class="text-2xl font-black text-white font-display mb-1">Connexion</h1>
+            <p class="text-xs text-slate-400 mb-6">Accédez à votre compte B-MONEY DIGITAL SERVICES</p>
+
+            <button onclick="handleSignInWithGoogle()" class="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-slate-700 transition-colors mb-4">
+              <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.8 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/></svg>
+              <span>Continuer avec Google</span>
+            </button>
+
+            <div class="flex items-center gap-3 my-4">
+              <div class="h-px flex-1 bg-slate-800"></div>
+              <span class="text-[11px] uppercase tracking-wider text-slate-400">ou par email</span>
+              <div class="h-px flex-1 bg-slate-800"></div>
+            </div>
+
+            <form onsubmit="handleEmailPasswordLogin(event)" class="space-y-4 text-xs">
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Email</label>
+                <input type="email" id="loginEmail" required placeholder="nom@exemple.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-1">
+                  <label class="text-slate-300 font-semibold">Mot de passe</label>
+                  <a href="#/mot-de-passe-oublie" class="text-emerald-400 hover:underline text-[11px]">Mot de passe oublié ?</a>
+                </div>
+                <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs tracking-wide">
+                Se connecter
+              </button>
+            </form>
+
+            <div class="mt-4 pt-4 border-t border-slate-800 text-center text-xs text-slate-400">
+              <button onclick="handleMagicLinkLogin()" class="text-slate-300 hover:text-emerald-400 underline">
+                Recevoir un lien magique de connexion sans mot de passe
+              </button>
+            </div>
+
+            <div class="mt-4 text-center text-xs text-slate-400">
+              Pas encore de compte ? <a href="#/inscription" class="text-emerald-400 font-bold hover:underline">S'inscrire</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRegister() {
+      updateSEO("Inscription", "Créez votre compte B-MONEY", window.location.href);
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-md mx-auto px-4 py-16">
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl">
+            <h1 class="text-2xl font-black text-white font-display mb-1">Créer un compte</h1>
+            <p class="text-xs text-slate-400 mb-6">Un compte unique pour être propriétaire, apporteur et abonné SASC.</p>
+
+            <button onclick="handleSignInWithGoogle()" class="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-slate-700 transition-colors mb-4">
+              <span>S'inscrire avec Google</span>
+            </button>
+
+            <form onsubmit="handleEmailPasswordRegister(event)" class="space-y-4 text-xs">
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Nom complet</label>
+                <input type="text" id="regName" required placeholder="Ex: Paul Martin" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+              </div>
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Adresse Email</label>
+                <input type="email" id="regEmail" required placeholder="nom@exemple.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+              </div>
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Mot de passe</label>
+                <input type="password" id="regPassword" required placeholder="8 caractères minimum" minlength="8" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs tracking-wide">
+                Créer mon compte
+              </button>
+            </form>
+
+            <div class="mt-6 text-center text-xs text-slate-400">
+              Déjà inscrit ? <a href="#/connexion" class="text-emerald-400 font-bold hover:underline">Se connecter</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderForgotPassword() {
+      updateSEO("Mot de passe oublié", "Réinitialiser mon mot de passe", window.location.href);
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-md mx-auto px-4 py-16">
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800">
+            <h1 class="text-2xl font-black text-white font-display mb-1">Mot de passe oublié</h1>
+            <p class="text-xs text-slate-400 mb-6">Nous vous enverrons un lien de réinitialisation sécurisé par email.</p>
+
+            <form onsubmit="handleResetPasswordSubmit(event)" class="space-y-4 text-xs">
+              <div>
+                <label class="block text-slate-300 font-semibold mb-1">Votre email</label>
+                <input type="email" id="resetEmail" required placeholder="nom@exemple.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" />
+              </div>
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs">
+                Recevoir le lien
+              </button>
+            </form>
+
+            <div class="mt-4 text-center text-xs">
+              <a href="#/connexion" class="text-slate-400 hover:text-white">Retour à la connexion</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function handleEmailPasswordLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if (supabaseClient && supabaseClient.auth) {
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+          alert("Erreur de connexion : " + error.message);
+          return;
+        }
+      } else {
+        currentUser = { id: 'usr-local', email, name: email.split('@')[0] };
+        renderAuthNav();
+      }
+
+      const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+      window.location.hash = params.get('redirect') || '#/accueil';
+    }
+
+    async function handleEmailPasswordRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+
+      if (supabaseClient && supabaseClient.auth) {
+        const { error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: { data: { full_name: name } }
+        });
+        if (error) {
+          alert("Erreur lors de l'inscription : " + error.message);
+          return;
+        }
+        alert("Compte créé avec succès !");
+      } else {
+        currentUser = { id: 'usr-local', email, name };
+        renderAuthNav();
+      }
+
+      window.location.hash = '#/accueil';
+    }
+
+    async function handleMagicLinkLogin() {
+      const email = prompt("Indiquez votre adresse email pour recevoir votre lien d'accès direct :");
+      if (!email) return;
+
+      if (supabaseClient && supabaseClient.auth) {
+        const { error } = await supabaseClient.auth.signInWithOtp({ email });
+        if (error) alert("Erreur d'envoi : " + error.message);
+        else alert("Lien magique transmis à votre boîte email !");
+      } else {
+        alert(`Lien magique envoyé à ${email} (Simulation active).`);
+      }
+    }
+
+    async function handleResetPasswordSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('resetEmail').value;
+      if (supabaseClient && supabaseClient.auth) {
+        const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
+        if (error) alert("Erreur : " + error.message);
+        else alert("Lien de réinitialisation transmis !");
+      } else {
+        alert("Lien de réinitialisation envoyé par email (Simulation).");
+      }
+      window.location.hash = '#/connexion';
+    }
+
+    /* CONDITIONS GÉNÉRALES (#/conditions) */
+    function renderConditions() {
+      updateSEO("Conditions Générales", "Règles, cautions et pénalités anti-fraude", window.location.href);
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-4xl mx-auto px-4 py-16">
+          <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 border border-slate-800 space-y-6 text-xs text-slate-300 leading-relaxed">
+            <h1 class="text-2xl sm:text-3xl font-black text-white font-display">Conditions d'Utilisation & Règles du Marché de Leads</h1>
+            
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">1. Référencement Public et Réclamation</h2>
+              <p>Les fiches d'entreprises proviennent de données publiques. Tout propriétaire peut réclamer gratuitement sa fiche sous réserve de vérification.</p>
+            </section>
+
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">2. Caution et Séquestre de Garantie</h2>
+              <p>L'activation de l'affiliation exige le dépôt préalable d'une caution bloquée en dollars américains (USD). La caution minimale est égale à la commission d'un client apporté (USD). Si la caution devient nulle, la fiche est automatiquement mise en pause.</p>
+            </section>
+
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">3. Contestation et Délais</h2>
+              <p>Le vendeur dispose de 30 jours pour contester un prospect. Pour le motif « ne répond pas », 3 tentatives d'appel enregistrées à des heures différentes sont exigées. Au 31e jour sans contestation valide, les fonds sont définitivement disponibles pour l'apporteur.</p>
+            </section>
+
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">4. Score de Confiance</h2>
+              <p>Un taux de rejet de prospects supérieur à 80% déclenche le statut « Vendeur suspect » et suspend temporairement le compte.</p>
+            </section>
+          </div>
+        </div>
+      `;
+    }
+
+    /* POLITIQUE DE CONFIDENTIALITÉ (#/confidentialite) */
+    function renderConfidentialite() {
+      updateSEO("Politique de Confidentialité", "Transparence, données et cookies", window.location.href);
+
+      document.getElementById('app').innerHTML = `
+        <div class="max-w-4xl mx-auto px-4 py-16">
+          <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 border border-slate-800 space-y-6 text-xs text-slate-300 leading-relaxed">
+            <h1 class="text-2xl sm:text-3xl font-black text-white font-display">Politique de Confidentialité & Gestion des Cookies</h1>
+            
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">1. Transparence</h2>
+              <p>B-MONEY DIGITAL SERVICES ne vend ni ne cède aucune donnée personnelle à des courtiers tiers.</p>
+            </section>
+
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">2. Cookies Analytiques</h2>
+              <p>${TEXTS.cookies.body}</p>
+            </section>
+
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">3. Prospects et Leads</h2>
+              <p>Les coordonnées des prospects ne sont communiquées qu'à l'entreprise désignée, après recueil d'un consentement explicite certifié par SMS OTP.</p>
+            </section>
+
+            <section class="space-y-2">
+              <h2 class="text-base font-bold text-white font-display">4. Vos Droits</h2>
+              <p>Vous disposez d'un droit permanent d'accès, de rectification et d'effacement de vos informations personnelles.</p>
+            </section>
+          </div>
+        </div>
+      `;
+    }
+
+    /* ==========================================================================
+       11. MODALES EXTERNES & ACTIONS INTERACTIVES
+       ========================================================================== */
+    function openExternalCheckout(productName, price) {
+      document.getElementById('checkoutProductName').innerText = productName;
+      document.getElementById('checkoutProductPrice').innerText = price;
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function simulatePaymentSuccess() {
+      const btn = document.getElementById('checkoutPayBtn');
+      btn.innerText = "Redirection vers passerelle externe...";
+      setTimeout(() => {
+        alert("Paiement validé avec succès par le prestataire externe ! Votre accès est actif.");
+        btn.innerText = "Procéder au règlement sécurisé →";
+        closeCheckoutModal();
+      }, 1000);
+    }
+
+    let currentCautionListingId = null;
+    function openCautionModal(listingId) {
+      currentCautionListingId = listingId;
+      const modal = document.getElementById('cautionModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCautionModal() {
+      const modal = document.getElementById('cautionModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    /* FONCTION DE CAUTION EN USD (MISE À JOUR OFFICIELLE) */
+    function confirmCautionDeposit() {
+      const comm = parseFloat(document.getElementById('cautionCommissionInput').value);
+      const dep = parseFloat(document.getElementById('cautionDepositInput').value);
+
+      if (!(comm > 0)) {
+        alert("Indiquez la commission versée pour un client apporté (en USD).");
+        return;
+      }
+
+      // Règle : la caution doit couvrir au minimum UN apporteur (une commission)
+      if (!(dep >= comm)) {
+        alert(`Attention : la caution minimale est de ${comm.toLocaleString('en-US')} USD, soit la commission d'un client apporté.`);
+        return;
+      }
+
+      // TODO: RPC Supabase set_commission & reload_caution
+      const listing = dbListings.find(l => l.id === currentCautionListingId);
+      if (listing) {
+        listing.caution_balance_minor = Math.round(dep * 100);
+        listing.commission_per_lead_minor = Math.round(comm * 100);
+        listing.affiliate_currency = "USD";
+        listing.affiliate_active = true;
+      }
+
+      alert("Caution séquestrée avec succès ! L'apport de clients qualifiés est désormais actif.");
+      closeCautionModal();
+      renderMySpace();
+    }
+
+    let activeLeadListingId = null;
+    function openLeadModal(listingId) {
+      activeLeadListingId = listingId;
+      const listing = dbListings.find(l => l.id === listingId);
+      if (listing) {
+        document.getElementById('leadModalSubtitle').innerText = `Établissement : ${listing.name} (Commission : ${formatMoney(listing.commission_per_lead_minor, listing.affiliate_currency)})`;
+      }
+      document.getElementById('leadStep1').classList.remove('hidden');
+      document.getElementById('leadStep2').classList.add('hidden');
+      const modal = document.getElementById('leadModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLeadModal() {
+      const modal = document.getElementById('leadModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function simulateSendLeadOTP() {
+      const name = document.getElementById('leadClientName').value.trim();
+      const phone = document.getElementById('leadClientPhone').value.trim();
+      const consent = document.getElementById('leadConsentCheck').checked;
+
+      if (!name || !phone) {
+        alert("Veuillez renseigner le nom et le numéro de téléphone.");
+        return;
+      }
+      if (!consent) {
+        alert("Le consentement explicite du prospect est obligatoire.");
+        return;
+      }
+
+      document.getElementById('leadStep1').classList.add('hidden');
+      document.getElementById('leadStep2').classList.remove('hidden');
+    }
+
+    function confirmLeadSubmission() {
+      const code = document.getElementById('leadOtpCode').value.trim();
+      if (code !== '1234') {
+        alert("Code OTP invalide. Pour le test, entrez '1234'.");
+        return;
+      }
+
+      alert("Prospect certifié avec succès ! La commission est bloquée sur la caution du vendeur en statut PENDING (séquestre 30 jours).");
+      closeLeadModal();
+    }
+
+    function requestListingRemoval(listingId) {
+      const motif = prompt("Motif de la demande de suppression :");
+      if (motif) alert("Votre demande a été prise en compte et sera examinée sous 48h.");
+    }
+
+    function claimListingAction(listingId) {
+      if (!currentUser) {
+        alert("Veuillez vous connecter pour réclamer cet établissement.");
+        window.location.hash = '#/connexion';
+        return;
+      }
+      const listing = dbListings.find(l => l.id === listingId);
+      if (listing) {
+        listing.is_claimed = true;
+        listing.verified = true;
+        alert(`Vous êtes désormais le gestionnaire de « ${listing.name} ». Déposez votre caution pour activer l'apport d'affaires.`);
+        renderListingDetail(listing.slug);
+      }
+    }
+
+    function joinLeadWaitlist(listingId) {
+      if (!currentUser) {
+        alert("Connectez-vous pour rejoindre la liste d'attente.");
+        window.location.hash = '#/connexion';
+        return;
+      }
+      alert("Inscription confirmée sur la liste d'attente d'apporteurs. Vous serez alerté dès l'activation de la caution !");
+    }
+
+    function openWithdrawModal() {
+      alert("Passerelle de retrait : Vos gains disponibles en USD sont transférés sous 24h ouvrées via Virement Bancaire, PayPal, Wise ou conversion directe.");
+    }
+
+    function openDisputeDialog() {
+      alert("Module de contestation vendeur : Si le motif est « Numéro sans réponse », veuillez fournir l'historique de vos 3 tentatives d'appels à heures distinctes.");
+    }
+
+    /* ==========================================================================
+       12. INITIALISATION GLOBALE
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      if (mobileBtn && mobileDrawer) {
+        mobileBtn.addEventListener('click', () => {
+          mobileDrawer.classList.toggle('hidden');
+        });
+      }
+
+      setupAuthListener();
+      initSmartCookieConsent();
+
+      window.addEventListener('hashchange', handleRouter);
+      handleRouter();
+    });
+  </script>
+
+</body>
+</html>
